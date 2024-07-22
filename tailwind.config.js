@@ -17,7 +17,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                'heading': ['"Antonio"'],
+                'heading': ['"montserrat"'],
             },
             colors: {
                 'menu': '#1c1a18',

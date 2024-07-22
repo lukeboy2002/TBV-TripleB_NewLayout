@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //    Route::get('/dashboard', function () {
@@ -31,9 +35,6 @@ Route::get('/events', function () {
 Route::get('/shop', function () {
     return view('shop');
 })->name('shop');
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');

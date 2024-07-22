@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -36,6 +38,52 @@ class Post extends Model
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function scopePublished($query): void
+    {
+        $query->where('published_at', '<=', Carbon::now());
+    }
+
+    public function scopeWithCategory($query, string $category): void
+    {
+        $query->whereHas('categories', function ($query) use ($category) {
+            $query->where('slug', $category);
+        });
+    }
+
+    public function scopeSearch($query, string $search = '')
+    {
+        $query->where('title', 'like', "%{$search}%")
+            ->orWhere('body', 'like', "%{$search}%");
+    }
+
+    public function getImage()
+    {
+        if (str_starts_with($this->image, 'http')) {
+            return $this->image;
+        }
+
+        return '/storage/'.$this->image;
+    }
+
+    public function shortBody($words = 30): string
+    {
+        return Str::words(strip_tags($this->body), $words);
+    }
+
+    public function getFormattedDate()
+    {
+        return $this->published_at->format('j F Y');
+        //        // Stel de locale in op Nederlands
+        //        Carbon::setLocale('nl');
+        //
+        //        // Veronderstel dat published_at een datum string is
+        //        $publishedAt = Carbon::parse($this->published_at);
+        //
+        //        // Gebruik translatedFormat om de maand in het Nederlands te krijgen
+        //        return $publishedAt->translatedFormat('j F Y');
+
     }
 
     /**
