@@ -8,11 +8,11 @@
 
     <div class="flex justify-between items-center text-gray-500 mb-4">
         <div class="flex items-center space-x-4">
-            @foreach ($post->categories as $category)
-                <a href="{{ route('posts.index', ['category' => $category->slug]) }}"
-                   class="text-orange-500 uppercase font-medium">
-                    {{ $category->title }}
-                </a>
+            @foreach ($post->tags as $tag)
+                <div class="text-orange-500 uppercase font-medium">
+                    {{ $tag->name }}
+
+                </div>
             @endforeach
         </div>
         <div>
