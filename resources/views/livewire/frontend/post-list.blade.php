@@ -20,13 +20,13 @@
     <x-card>
         @foreach($this->posts as $post)
             <div class="col-span-1 space-y-3 p-2">
-                <header class="space-y-4">
+                <header>
                     <img src="{{ asset($post->getImage()) }}"
                          alt="{{ $post->title }}"
-                         class="h-48 w-full object-cover object-top"
+                         class="h-48 w-full object-cover object-top my-6"
                     />
                     <x-link-reversed href="{{route('posts.show', $post->id) }}"
-                                     class="font-heading tracking-wide text-xl font-bold">
+                                     class="font-heading tracking-wide text-xl font-bold uppercase">
                         {{ $post->title }}
                     </x-link-reversed>
                 </header>
