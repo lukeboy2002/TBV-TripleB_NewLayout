@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Permission;
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class RolesAndPermissionsSeeder extends Seeder
@@ -17,34 +16,34 @@ class RolesAndPermissionsSeeder extends Seeder
         // reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-// Misc
+        // Misc
         $miscPermission = Permission::create(['name' => 'N/A']);
 
-// USER MODEL
+        // USER MODEL
         $userPermission1 = Permission::create(['name' => 'create:user']);
         $userPermission2 = Permission::create(['name' => 'show:user']);
         $userPermission3 = Permission::create(['name' => 'update:user']);
         $userPermission4 = Permission::create(['name' => 'delete:user']);
 
-// ROLE MODEL
+        // ROLE MODEL
         $rolePermission1 = Permission::create(['name' => 'create:role']);
         $rolePermission2 = Permission::create(['name' => 'show:role']);
         $rolePermission3 = Permission::create(['name' => 'update:role']);
         $rolePermission4 = Permission::create(['name' => 'delete:role']);
 
-// PERMISSION MODEL
+        // PERMISSION MODEL
         $permission1 = Permission::create(['name' => 'create:permission']);
         $permission2 = Permission::create(['name' => 'show:permission']);
         $permission3 = Permission::create(['name' => 'update:permission']);
         $permission4 = Permission::create(['name' => 'delete:permission']);
 
-// ADMINS
+        // ADMINS
         $adminPermission1 = Permission::create(['name' => 'create:admin']);
         $adminPermission2 = Permission::create(['name' => 'show:admin']);
         $adminPermission3 = Permission::create(['name' => 'update:admin']);
         $adminPermission4 = Permission::create(['name' => 'delete:admin']);
 
-// CREATE ROLES
+        // CREATE ROLES
         $userRole = Role::create(['name' => 'user'])->syncPermissions([
             $miscPermission,
         ]);
