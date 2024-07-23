@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use Spatie\Tags\HasTags;
 
 class Post extends Model
 {
     use HasFactory;
+    use HasTags;
 
     /**
      * The attributes that are mass assignable.
@@ -34,7 +36,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function categories(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
