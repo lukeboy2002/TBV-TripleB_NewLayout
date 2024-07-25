@@ -30,6 +30,6 @@
         {!! $post->body !!}
     </div>
     <x-slot name="side">
-        samdfkjas
+        <x-categories/>
     </x-slot>
 </x-app-layout>

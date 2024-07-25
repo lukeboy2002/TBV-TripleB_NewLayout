@@ -39,7 +39,9 @@ class DatabaseSeeder extends Seeder
             ->recycle([$users, $categories])
             ->create();
         foreach ($posts as $post) {
-            $post->tags()->attach($tags);
+            $random_tag = rand(0, 3);
+            $tag = $tags[$random_tag];
+            $post->tags()->attach($tag);
         }
 
         $admin = User::factory()
