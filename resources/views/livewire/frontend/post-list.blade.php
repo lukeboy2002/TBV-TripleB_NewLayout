@@ -27,9 +27,17 @@
                     />
                     <x-link-reversed href="{{route('posts.show', $post->id) }}"
                                      class="font-heading tracking-wide text-xl font-bold uppercase">
-                        {{ $post->title }}
+                        {{ $post->title }} --- {{ $post->id }}
                     </x-link-reversed>
                 </header>
+
+                <div class="flex items-center">
+
+                    <a href="{{ route('posts.index', ['category' => $post->category->slug]) }}">
+                        {{ $post->category->name }}
+                    </a>
+
+                </div>
                 <div class="flex justify-between items-center uppercase text-sm text-gray-500">
                     <div class="flex space-x-4 ">
                         <div>BY <span class="text-orange-500 font-semibold">{{ $post->author->username }}</span></div>

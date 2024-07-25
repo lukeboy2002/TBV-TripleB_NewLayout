@@ -23,6 +23,9 @@ class PostList extends Component
     #[Url()]
     public $category = '';
 
+    #[Url()]
+    public $tag = '';
+
     public function setSort($sort)
     {
         $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
@@ -32,6 +35,7 @@ class PostList extends Component
     {
         $this->search = '';
         $this->category = '';
+        $this->tag = '';
         $this->resetPage();
     }
 
@@ -46,10 +50,13 @@ class PostList extends Component
     public function posts()
     {
         return Post::published()
-            ->with('author', 'comments')
+            ->with('author', 'comments', 'category')
             ->search($this->search)
             ->when($this->activeCategory, function ($query) {
                 $query->withCategory($this->category);
+            })
+            ->when($this->tag, function ($query) {
+                $query->withAnyTags([$this->tag]);
             })
             ->orderBy('published_at', $this->sort)
             ->paginate(9);
@@ -64,6 +71,16 @@ class PostList extends Component
 
         return Category::where('slug', $this->category)->first();
     }
+
+    //    #[Computed()]
+    //    public function activeTag()
+    //    {
+    //        if ($this->tag === null || $this->tag === '') {
+    //            return null;
+    //        }
+    //
+    //        return Tag::findFromString($this->tag);
+    //    }
 
     public function render()
     {
