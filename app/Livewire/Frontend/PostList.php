@@ -9,6 +9,7 @@ use Livewire\Attributes\On;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Spatie\Tags\Tag;
 
 class PostList extends Component
 {
@@ -55,7 +56,7 @@ class PostList extends Component
             ->when($this->activeCategory, function ($query) {
                 $query->withCategory($this->category);
             })
-            ->when($this->tag, function ($query) {
+            ->when($this->activeTag, function ($query) {
                 $query->withAnyTags([$this->tag]);
             })
             ->orderBy('published_at', $this->sort)
@@ -72,15 +73,15 @@ class PostList extends Component
         return Category::where('slug', $this->category)->first();
     }
 
-    //    #[Computed()]
-    //    public function activeTag()
-    //    {
-    //        if ($this->tag === null || $this->tag === '') {
-    //            return null;
-    //        }
-    //
-    //        return Tag::findFromString($this->tag);
-    //    }
+    #[Computed()]
+    public function activeTag()
+    {
+        if ($this->tag === null || $this->tag === '') {
+            return null;
+        }
+
+        return Tag::findFromString($this->tag);
+    }
 
     public function render()
     {

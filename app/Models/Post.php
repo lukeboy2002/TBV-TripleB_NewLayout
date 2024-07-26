@@ -73,6 +73,11 @@ class Post extends Model
         return Str::words(strip_tags($this->body), $words);
     }
 
+    public function shortTitle($words = 7): string
+    {
+        return Str::words(strip_tags($this->title), $words);
+    }
+
     public function getFormattedDate()
     {
         return $this->published_at->format('j F Y');
