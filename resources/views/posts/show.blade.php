@@ -31,8 +31,7 @@
     </div>
 
     <div class="pt-8">
-        <h3 class="mb-8 text-xl font-heading font-bold">COMMENTS </h3>
-
+        <livewire:frontend.comments :post="$post"/>
     </div>
     <x-slot name="side">
         <div class="space-y-10">
