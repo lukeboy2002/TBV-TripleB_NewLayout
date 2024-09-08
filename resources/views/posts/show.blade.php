@@ -24,9 +24,10 @@
                 </div>
             </div>
             <div class="flex justify-end items-center text-xs">
-                <x-heroicon-o-heart class="mr-1 size-3"/>
                 <div>
-                    <div class="bg-red-500 text-white">xx Likes</div>
+                    <livewire:like-component type="post" id="{{ $post->id }}"/>
+
+                    {{--                    <div>{{ $post->likes_count }} Likes</div>--}}
                 </div>
             </div>
         </header>

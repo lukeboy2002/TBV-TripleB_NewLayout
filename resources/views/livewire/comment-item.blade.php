@@ -14,25 +14,8 @@
                     {{ $comment->created_at->diffForHumans() }}
                 </p>
             </div>
-            <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center space-x-4">
-                @auth
-                    <div class="flex">
-                        <button type="submit"
-                                class="text-green-500 hover:bg-green-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm p-1 text-center inline-flex items-center me-2">
-                            <x-heroicon-s-hand-thumb-up class="size-4"/>
-                            <span class="sr-only">Like</span>
-                        </button>
-                        <button type="submit"
-                                class="text-red-500 hover:bg-red-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-1 text-center inline-flex items-center me-2">
-                            <x-heroicon-s-hand-thumb-down class="size-4"/>
-                            <span class="sr-only">Dislike</span>
-                        </button>
-                    </div>
-                @endauth
-                <div class="flex items-center space-x-1">
-                    <x-heroicon-o-heart class="size-3"/>
-                    <div class="bg-red-500 text-white">2</div>
-                </div>
+            <div class="text-xs text-gray-500 dark:text-gray-400 flex items-center space-x-4">
+                <livewire:like-component type="comment" id="{{ $comment->id }}"/>
             </div>
         </header>
         <main>

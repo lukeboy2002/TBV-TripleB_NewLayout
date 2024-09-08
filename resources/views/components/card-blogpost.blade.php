@@ -6,7 +6,7 @@
         />
         <div class="flex justify-between items-center space-y-2 text-xs">
             <a href="#" class="bg-red-500 text-white">Categories</a>
-            <div class="bg-red-500 text-white">xx Likes</div>
+            <div>{{ $post->likes_count }} Likes</div>
         </div>
         <x-link-primary class="text-xl" href="{{ route('posts.show', $post->id) }}">
             {{ $post->title }}

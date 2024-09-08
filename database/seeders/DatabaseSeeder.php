@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Comment;
-use App\Models\Like;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
@@ -48,10 +47,10 @@ class DatabaseSeeder extends Seeder
         $admin = User::factory()
             ->has(Post::factory(45)->recycle($categories))
             ->has(Comment::factory(120)->recycle($posts))
-            ->has(Like::factory()->forEachSequence(
-                ...$posts->random(100)->map(fn (Post $post
-                ) => ['likeable_id' => $post]),
-            ))
+//            ->has(Like::factory()->forEachSequence(
+//                ...$posts->random(100)->map(fn (Post $post
+//                ) => ['likeable_id' => $post]),
+//            ))
             ->create([
                 'username' => 'admin',
                 'email' => 'admin@test.com',

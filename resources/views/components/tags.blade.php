@@ -1,4 +1,4 @@
-<h3 class="mb-8 text-xl font-heading font-bold">Tags </h3>
+<h3 class="mb-8 text-xl font-heading font-bold">Tags</h3>
 <div class="space-x-2">
     @foreach($tags as $tag)
         <a href="{{ route('posts.index', ['tag' => $tag->slug]) }}"
