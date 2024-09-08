@@ -5,7 +5,7 @@
              class="absolute inset-0 w-full h-124 object-cover"
         />
         <div class="absolute h-124 inset-0 flex flex-col items-center justify-center">
-            <h3 class="text-orange-500 font-heading font-semibold tracking-wide md:text-4xl uppercase">
+            <h3 class="text-orange-500 font-heading font-semibold tracking-wide md:text-4xl text-center uppercase">
                 {{ $post->title }}
             </h3>
         </div>
@@ -26,36 +26,12 @@
             <div class="flex justify-end items-center text-xs">
                 <div>
                     <livewire:like-component type="post" id="{{ $post->id }}"/>
-
-                    {{--                    <div>{{ $post->likes_count }} Likes</div>--}}
                 </div>
             </div>
         </header>
         <main class="prose prose-sm max-w-none">
             {!! $post->body !!}
         </main>
-        <footer>
-            <div class="flex justify-end items-center bg-red-500 text-white">
-                can like post
-            </div>
-            {{--            <div v-if="$page.props.auth.user" class="flex items-center justify-end space-x-6">--}}
-            {{--                <Link v-if="post.can.like"--}}
-            {{--                      :href="route('likes.store', ['post', post.id])"--}}
-            {{--                      class="flex items-center space-x-2 text-green-700 hover:text-green-500 transition-colors"--}}
-            {{--                      method="post" preserve-scroll>--}}
-            {{--                <HandThumbUpIcon class="size-4"/>--}}
-            {{--                <span class="text-xs">like post</span>--}}
-            {{--                </Link>--}}
-            {{--                <Link v-else--}}
-            {{--                      :href="route('likes.destroy', ['post', post.id])"--}}
-            {{--                      class="flex items-center space-x-2 text-red-700 hover:text-red-500 transition-colors"--}}
-            {{--                      method="delete"--}}
-            {{--                      preserve-scroll>--}}
-            {{--                <HandThumbDownIcon class="size-4"/>--}}
-            {{--                <span class="text-xs">unlike post</span>--}}
-            {{--                </Link>--}}
-            {{--            </div>--}}
-        </footer>
     </article>
 
     <div class="pt-6">
@@ -66,7 +42,6 @@
             <x-categories/>
             <x-latest-post/>
             <x-tags/>
-
         </div>
     </x-slot>
 </x-app-layout>

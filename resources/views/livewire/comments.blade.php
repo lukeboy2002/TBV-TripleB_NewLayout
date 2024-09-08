@@ -1,8 +1,5 @@
 <div class="pl-6 pr-4">
-    <h3 class="text-xl font-black text-orange-500 tracking-widest border-l-4 border-orange-500 pl-2 mb-4">
-        Comments
-    </h3>
-
+    <x-heading>Comments</x-heading>
     <livewire:comment-create :post="$post"/>
 
     @foreach($comments as $comment)

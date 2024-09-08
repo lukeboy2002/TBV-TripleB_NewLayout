@@ -2,6 +2,7 @@
     <div>
         @auth()
             <div x-data="{
+            focused: {{ $commentModel ? 'true' : 'false'}},
             isEdit: {{ $commentModel ? 'true' : 'false'}},
             init() {
                 if (this.isEdit || this.focused)
@@ -23,18 +24,17 @@
                 <x-input-error for="comment" class="mt-2"/>
 
                 <div :class="isEdit || focused ? 'flex justify-end items-center space-x-2 pt-4' : 'hidden'">
-                    <div class="flex justify-end space-x-2 pt-2" :class="isEdit || focused ? '' : 'hidden'">
-                        <x-button-secondary @click="focused = false; isEdit = false; $wire.dispatch('cancelEditing')"
-                                            type="button"
-                                            class="px-3 py-2 text-xs font-medium">
-                            Cancel
-                        </x-button-secondary>
-                        <x-button-primary wire:click="createComment" type="submit"
-                                          class="px-3 py-2 text-xs font-medium">
-                            Submit
-                        </x-button-primary>
-                    </div>
+                    <x-button-secondary @click="focused = false; isEdit = false; $wire.dispatch('cancelEditing')"
+                                        type="button"
+                                        class="px-3 py-2 text-xs font-medium">
+                        Cancel
+                    </x-button-secondary>
+                    <x-button-primary wire:click="createComment" type="submit"
+                                      class="px-3 py-2 text-xs font-medium">
+                        Submit
+                    </x-button-primary>
                 </div>
+
             </div>
         @else
             <div class="flex justify-end items-center space-x-1">

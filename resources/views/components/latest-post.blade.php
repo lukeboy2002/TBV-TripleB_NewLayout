@@ -1,4 +1,5 @@
-<h3 class="mb-8 text-xl font-heading font-bold">Latest Post </h3>
+<x-heading>Latest Post</x-heading>
+
 <div class="flex flex-col justify-between space-y-10">
     @foreach($posts as $post)
         <div class="flex justify-between space-x-2">
