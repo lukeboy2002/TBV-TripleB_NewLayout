@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Comment extends Model
 {
@@ -16,12 +16,13 @@ class Comment extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'user_id',
-        'post_id',
-        'parent_id',
-        'comment',
-    ];
+    protected $fillable
+        = [
+            'user_id',
+            'post_id',
+            'parent_id',
+            'comment',
+        ];
 
     public function user(): BelongsTo
     {
@@ -33,14 +34,9 @@ class Comment extends Model
         return $this->belongsTo(Post::class);
     }
 
-    public function parentComment(): BelongsTo
+    public function likes(): MorphMany
     {
-        return $this->belongsTo(Comment::class, 'parent_id');
-    }
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class, 'parent_id')->orderByDesc('created_at');
+        return $this->morphMany(Like::class, 'likeable');
     }
 
     public function getFormattedDate()

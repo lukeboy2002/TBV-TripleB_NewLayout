@@ -14,5 +14,5 @@
         </div>
     </x-slot>
 
-    <livewire:frontend.post-list/>
+    <livewire:post-index/>
 </x-app-layout>

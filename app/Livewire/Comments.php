@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Frontend;
+namespace App\Livewire;
 
 use App\Models\Comment;
 use App\Models\Post;
@@ -10,10 +10,11 @@ class Comments extends Component
 {
     public Post $post;
 
-    protected $listeners = [
-        'commentCreated' => '$refresh',
-        'commentDeleted' => '$refresh',
-    ];
+    protected $listeners
+        = [
+            'commentCreated' => '$refresh',
+            'commentDeleted' => '$refresh',
+        ];
 
     public function mount(Post $post)
     {
@@ -24,14 +25,13 @@ class Comments extends Component
     {
         $comments = $this->selectComments();
 
-        return view('livewire.frontend.comments', compact('comments'));
+        return view('livewire.comments', compact('comments'));
     }
 
     private function selectComments()
     {
         return Comment::where('post_id', '=', $this->post->id)
-            ->with(['post', 'user', 'comments'])
-            ->whereNull('parent_id')
+            ->with(['post', 'user'])
             ->orderByDesc('created_at')
             ->paginate(5);
     }

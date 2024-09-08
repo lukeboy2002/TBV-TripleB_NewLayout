@@ -28,32 +28,35 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'username',
-        'email',
-        'password',
-    ];
+    protected $fillable
+        = [
+            'username',
+            'email',
+            'password',
+        ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
+    protected $hidden
+        = [
+            'password',
+            'remember_token',
+            'two_factor_recovery_codes',
+            'two_factor_secret',
+        ];
 
     /**
      * The accessors to append to the model's array form.
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends
+        = [
+            'profile_photo_url',
+        ];
 
     public function posts(): HasMany
     {
@@ -65,13 +68,21 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class);
     }
 
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
     protected function defaultProfilePhotoUrl()
     {
-        $username = trim(collect(explode(' ', $this->username))->map(function ($segment) {
+        $username = trim(collect(explode(' ', $this->username))->map(function (
+            $segment
+        ) {
             return mb_substr($segment, 0, 1);
         })->join(' '));
 
-        return 'https://ui-avatars.com/api/?name='.urlencode($username).'&color=F97316&background=030712';
+        return 'https://ui-avatars.com/api/?name='.urlencode($username)
+            .'&color=F97316&background=030712';
     }
 
     /**

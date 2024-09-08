@@ -32,10 +32,6 @@ class CommentPolicy
             return false;
         }
 
-        if ($comment->comments->count() > 0) {
-            return false;
-        }
-
         return $comment->created_at->isAfter(now()->subHour());
     }
 }

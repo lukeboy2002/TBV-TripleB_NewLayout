@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Frontend;
+namespace App\Livewire;
 
 use App\Models\Comment;
 use App\Models\Post;
@@ -17,15 +17,14 @@ class CommentCreate extends Component
 
     public ?Comment $commentModel = null;
 
-    public ?Comment $parentComment = null;
-
-    public function mount(Post $post, $commentModel = null, $parentComment = null)
-    {
+    public function mount(
+        Post $post,
+        $commentModel = null,
+    ) {
         $this->post = $post;
         $this->commentModel = $commentModel;
         $this->comment = $commentModel ? $commentModel->comment : '';
 
-        $this->parentComment = $parentComment;
     }
 
     public function createComment()
@@ -37,7 +36,8 @@ class CommentCreate extends Component
 
         if ($this->commentModel) {
             if ($this->commentModel->user_id != $user->id) {
-                return response('You are not allowed to perform this action', 403);
+                return response('You are not allowed to perform this action',
+                    403);
             }
 
             $this->commentModel->comment = $this->comment;
@@ -50,18 +50,16 @@ class CommentCreate extends Component
                 'comment' => $this->comment,
                 'post_id' => $this->post->id,
                 'user_id' => $user->id,
-                'parent_id' => $this->parentComment?->id,
             ]);
 
             $this->dispatch('commentCreated', $comment->id);
             $this->comment = '';
             $this->banner('Successfully saved!');
-
         }
     }
 
     public function render()
     {
-        return view('livewire.frontend.comment-create');
+        return view('livewire.comment-create');
     }
 }
