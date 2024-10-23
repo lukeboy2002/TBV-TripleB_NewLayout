@@ -5,9 +5,12 @@ namespace App\Livewire;
 use App\Models\Comment;
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Comments extends Component
 {
+    use withPagination;
+
     public Post $post;
 
     protected $listeners
