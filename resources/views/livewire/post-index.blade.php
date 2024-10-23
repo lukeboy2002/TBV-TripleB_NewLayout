@@ -1,55 +1,68 @@
 <div>
-    <div>
-        <div class="md:flex sm:justify-end md:justify-between items-center mt-3  py-1">
-            <div class="bg-red-500 text-white">ALL CATEGORIES</div>
-            {{--            <menu class="hidden md:flex justify-between items-center overflow-x-auto">--}}
-            {{--                <li>--}}
-            {{--                    <LinkCategory :filled="! selectedCategory"--}}
-            {{--                                  :href="route('posts.index', { query: searchForm.query })">--}}
-            {{--                        All Posts--}}
-            {{--                    </LinkCategory>--}}
-            {{--                </li>--}}
-            {{--                <li v-for="category in categories" :key="category.id">--}}
-            {{--                    <LinkCategory :filled="category.id === selectedCategory?.id"--}}
-            {{--                                  :href="route('posts.index', { category: category.slug, query: searchForm.query })"--}}
-            {{--                    >--}}
-            {{--                        {{ category.name }}--}}
-            {{--                    </LinkCategory>--}}
-            {{--                </li>--}}
-            {{--            </menu>--}}
-            <x-search-box/>
-            {{--            <form class="w-full md:w-1/4" @submit.prevent="search">--}}
-            {{--                <label class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"--}}
-            {{--                       for="query">Search</label>--}}
-            {{--                <div class="relative">--}}
-            {{--                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">--}}
-            {{--                        <MagnifyingGlassIcon class="size-4 text-orange-500"/>--}}
-            {{--                    </div>--}}
-            {{--                    <TextInput id="query"--}}
-            {{--                               v-model="searchForm.query"--}}
-            {{--                               class="block w-full p-2 ps-10 text-sm"--}}
-            {{--                               placeholder="Search ..."--}}
-            {{--                               type="search"/>--}}
-            {{--                    <div class="absolute flex end-2.5 bottom-1.5">--}}
-            {{--                        <ButtonIcon class="bg-orange-500" type="submit">--}}
-            {{--                            <MagnifyingGlassIcon class="size-4 text-white"/>--}}
-            {{--                        </ButtonIcon>--}}
-            {{--                        <ButtonIcon v-if="searchForm.query"--}}
-            {{--                                    class="bg-red-500"--}}
-            {{--                                    @click="clearSearch">--}}
-            {{--                            <XCircleIcon class="size-4 text-white"/>--}}
-            {{--                        </ButtonIcon>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--                <!--          <ButtonDanger v-if="searchForm.query" @click="clearSearch">Clear</ButtonDanger>-->--}}
-            {{--            </form>--}}
+    {{--    <div>--}}
+    {{--        <div class="md:flex sm:justify-end md:justify-between items-center py-4">--}}
+    {{--            <a wire:navigate href="{{ route('posts.index') }}">All categories</a>--}}
+    {{--            <x-search-box/>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+
+
+    <div class="flex justify-between items-center mb-4">
+        <div>
+            <div class="flex items-center space-x-2 text-md text-gray-700 dark:text-gray-300">
+                @if ($this->activeCategory)
+                    <div>
+                        Filterd by category:
+                    </div>
+                    <x-link-primary href="{{ route('posts.index', ['category' => $this->activeCategory->slug]) }}">
+                        {{ $this->activeCategory->name }}
+                    </x-link-primary>
+                @endif
+                @if ($this->activeTag)
+                    <div>
+                        Filterd by Tag:
+                    </div>
+                    <x-link-primary href="{{ route('posts.index', ['tag' => $this->activeTag->slug]) }}">
+                        {{ $this->activeTag->name }}
+                    </x-link-primary>
+                @endif
+
+                @if ($search)
+                    <div>
+                        Searching:
+                    </div>
+                    <div class="text-orange-500">{{ $search }} </div>
+                @endif
+                @if ($this->activeCategory || $this->activeTag || $search)
+                    <div class="flex items-center text-orange-500"
+                         wire:click="clearFilters()">
+                        <x-heroicon-o-x-circle class="size-5 mr-2"/>
+                    </div>
+                @endif
+            </div>
         </div>
-        {{--        <p v-if="selectedCategory" class="hidden md:block mt-1 text-xs text-orange-500 italic empty:hidden">--}}
-        {{--            {{ selectedCategory.description }}--}}
-        {{--        </p>--}}
+        <div class="flex space-x-4">
+            <button class="{{ $sort === "desc" ? "flex items-center text-orange-500 border-b border-orange-500" : "flex items-center text-gray-500 dark:text-gray-400" }} py-1"
+                    wire:click="setSort('desc')"
+            >
+                <x-heroicon-s-bars-arrow-down class="mr-2 size-4"/>
+                {{ __('Latest') }}
+            </button>
+            <button class="{{ $sort === "asc" ? "flex items-center text-orange-500 border-b border-orange-500" : "flex items-center text-gray-500 dark:text-gray-400" }} py-1"
+                    wire:click="setSort('asc')"
+            >
+                <x-heroicon-s-bars-arrow-up class="mr-2 size-4"/>
+                {{ __('Oldest') }}
+            </button>
+
+            <div class="flex items-center space-x-2 text-xs text-gray-700 dark:text-gray-50">
+                <x-search-box/>
+            </div>
+        </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         @foreach($this->posts as $post)
             <x-card-blogpost :post="$post"/>
         @endforeach

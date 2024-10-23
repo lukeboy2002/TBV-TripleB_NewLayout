@@ -10,14 +10,17 @@
             </h3>
         </div>
     </x-slot>
-    <article class="bg-gray-50 pt-1 rounded-xl p-4 my-4">
+    <article class="bg-gray-200 rounded-lg border border-orange-500 shadow-md dark:bg-menu/50 p-4 my-4">
         <header class="mb-2">
             <div class="flex justify-between items-center text-gray-500">
-                <div class="flex items-center space-x-4 mt-6">
-                    <a href="#" class="bg-red-500 text-white">Categories</a>
-                </div>
+                <x-badge-category
+                        wire:navigate
+                        href="{{ route('posts.index', ['category' => $post->category->slug]) }}"
+                        :Color="$post->category->color">
+                    {{ $post->category->name }}
+                </x-badge-category>
                 <div>
-                    <div class="flex space-x-4 uppercase">
+                    <div class="flex space-x-4 uppercase text-gray-700 dark:text-gray-200">
                         <div>BY <span class="text-orange-500 font-semibold">{{ $post->author->username }}</span></div>
                         <div>{{ $post->getFormattedDate() }}</div>
                     </div>
@@ -29,9 +32,18 @@
                 </div>
             </div>
         </header>
-        <main class="prose prose-sm max-w-none">
+        <main class="prose prose-sm max-w-none text-gray-700 dark:text-gray-200">
             {!! $post->body !!}
         </main>
+        <footer class="flex pt-4">
+            @foreach ($post->tags as $tag)
+                <x-badge-tag
+                        wire:navigate
+                        href="{{ route('posts.index', ['tag' => $tag->slug]) }}">
+                    {{ $tag->name }}
+                </x-badge-tag>
+            @endforeach
+        </footer>
     </article>
 
     <div class="pt-6">

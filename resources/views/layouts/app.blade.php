@@ -16,9 +16,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
+    @stack('styles')
     @livewireStyles
 </head>
-<body class="font-sans antialiased bg-white">
+<body class="font-sans antialiased bg-gray-100 dark:bg-menu/80 text-gray-700 dark:text-gray-300">
 <x-banner/>
 <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
     <livewire:navigation-menu/>
@@ -52,5 +53,6 @@
 @stack('modals')
 
 @livewireScripts
+@stack('scripts')
 </body>
 </html>

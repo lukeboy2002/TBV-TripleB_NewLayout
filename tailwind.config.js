@@ -10,9 +10,10 @@ export default {
         './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
-        './node_modules/flowbite/**/*.js',
+        './resources/**/*.vue',
+        './node_modules/flowbite/**/*.js'
     ],
-
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
