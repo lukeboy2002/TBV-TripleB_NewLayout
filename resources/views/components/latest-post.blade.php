@@ -1,4 +1,5 @@
-<h3 class="mb-8 text-xl font-heading font-bold">Latest Post </h3>
+<x-heading>Latest Post</x-heading>
+
 <div class="flex flex-col justify-between space-y-10">
     @foreach($posts as $post)
         <div class="flex justify-between space-x-2">
@@ -9,9 +10,9 @@
                 />
             </div>
             <div class="w-3/4">
-                <x-link-reversed href="" class="flex items-start uppercase text-sm font-semibold">
+                <x-link-primary href="" class="flex items-start uppercase text-sm font-semibold">
                     {{ $post->shortTitle() }}
-                </x-link-reversed>
+                </x-link-primary>
             </div>
         </div>
     @endforeach

@@ -16,6 +16,9 @@ class PostIndex extends Component
     use WithPagination;
 
     #[Url()]
+    public $sort = 'desc';
+
+    #[Url()]
     public $search = '';
 
     #[Url()]
@@ -24,9 +27,16 @@ class PostIndex extends Component
     #[Url()]
     public $tag = '';
 
+    public function setSort($sort)
+    {
+        $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
+    }
+
     public function clearFilters()
     {
         $this->search = '';
+        $this->category = '';
+        $this->tag = '';
         $this->resetPage();
     }
 
@@ -49,7 +59,7 @@ class PostIndex extends Component
             ->when($this->activeTag, function ($query) {
                 $query->withAnyTags([$this->tag]);
             })
-            ->orderBy('published_at', 'desc')
+            ->orderBy('published_at', $this->sort)
             ->paginate(9);
     }
 
