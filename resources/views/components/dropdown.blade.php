@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-menu-light', 'dropdownClasses' => ''])
+@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-menu/90', 'dropdownClasses' => ''])
 
 @php
     $alignmentClasses = match ($align) {

@@ -12,10 +12,10 @@
             <input x-model="query"
                    type="text"
                    id="search"
-                   class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:ring-orange-500 focus:border-orange-500"
+                   class="block w-full p-4 ps-10 text-sm text-dark border border-light/60 rounded-lg bg-light focus:ring-orange-500 focus:border-orange-500"
                    placeholder="Search..."/>
             <button type="submit"
-                    class="text-white absolute end-2.5 bottom-2.5 bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-2 py-2">
+                    class="text-light absolute end-2.5 bottom-2.5 bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-primary/30 font-medium rounded-lg text-sm px-2 py-2">
                 <x-heroicon-o-magnifying-glass class="size-4"/>
                 <span class="sr-only">Search</span>
             </button>
