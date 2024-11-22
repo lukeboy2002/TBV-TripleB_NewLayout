@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Frontend;
+namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Post;
@@ -11,12 +11,9 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Tags\Tag;
 
-class PostList extends Component
+class PostIndex extends Component
 {
     use WithPagination;
-
-    #[Url()]
-    public $sort = 'desc';
 
     #[Url()]
     public $search = '';
@@ -27,16 +24,9 @@ class PostList extends Component
     #[Url()]
     public $tag = '';
 
-    public function setSort($sort)
-    {
-        $this->sort = ($sort === 'desc') ? 'desc' : 'asc';
-    }
-
     public function clearFilters()
     {
         $this->search = '';
-        $this->category = '';
-        $this->tag = '';
         $this->resetPage();
     }
 
@@ -59,7 +49,7 @@ class PostList extends Component
             ->when($this->activeTag, function ($query) {
                 $query->withAnyTags([$this->tag]);
             })
-            ->orderBy('published_at', $this->sort)
+            ->orderBy('published_at', 'desc')
             ->paginate(9);
     }
 
@@ -85,6 +75,6 @@ class PostList extends Component
 
     public function render()
     {
-        return view('livewire.frontend.post-list');
+        return view('livewire.post-index');
     }
 }
