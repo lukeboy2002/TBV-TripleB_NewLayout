@@ -4,10 +4,10 @@
         ">
         <div class="flex flex-col items-center py-4 space-y-3 md:w-1/3 lg:w-1/5 ">
             <div class="flex items-center flex-col">
-                <div class="text-xl font-black text-orange-500 tracking-widest">
+                <div class="text-xl font-black text-primary tracking-widest">
                     TBV-TripleB
                 </div>
-                <div class="text-xs text-gray-400">{{ __('We love a game of billiards') }}</div>
+                <div class="text-xs text-light/60">{{ __('We love a game of billiards') }}</div>
             </div>
             <div class="flex flex-col items-center space-y-2">
                 <x-application-logo/>
@@ -18,7 +18,7 @@
 
         </div>
         <div class="hidden md:w-1/3 lg:w-3/5 md:block md:mt-4 md:max-w-7xl">
-            <div class="text-xl font-black text-orange-500 font-heading tracking-widest pb-4">
+            <div class="text-xl font-black text-primary font-heading tracking-widest pb-4">
                 OUR BLOG
             </div>
             <div class="flex justify-between gap-4 pb-4">
@@ -31,8 +31,8 @@
                                      class="max-h-32 w-full rounded-tl-lg object-top object-cover"
                                 />
                                 <div>
-                                    <h3 class="text-orange-500 font-bold text-xl">title</h3>
-                                    <p class="text-md text-gray-400">
+                                    <h3 class="text-primary font-bold text-xl">title</h3>
+                                    <p class="text-md text-light">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam bibendum dolor
                                         odio, et tristique sem dignissim a. Sed congue ex..
                                     </p>
@@ -50,8 +50,8 @@
                                      class="max-h-32 w-full rounded-tl-lg object-top object-cover"
                                 />
                                 <div>
-                                    <h3 class="text-orange-500 font-bold text-xl">title</h3>
-                                    <p class="text-md text-gray-400">
+                                    <h3 class="text-primary font-bold text-xl">title</h3>
+                                    <p class="text-md text-light">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam bibendum dolor
                                         odio, et tristique sem dignissim a. Sed congue ex..
                                     </p>
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="flex justify-center items-center text-sm text-gray-300 h-16 border-t border-orange-500/30 ">
+    <div class="flex justify-center items-center text-sm text-light h-16 border-t border-primary/30 ">
         TBV-TripleB (c) 2024 All rights reserved
     </div>
     </div>

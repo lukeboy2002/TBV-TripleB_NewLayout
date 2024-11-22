@@ -4,7 +4,7 @@
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-14">
-                <div class="flex items-center text-xl font-black text-orange-500 tracking-widest">
+                <div class="flex items-center text-xl font-black text-primary tracking-widest">
                     <x-application-logo/>
                     TBV-TripleB
                 </div>
@@ -37,7 +37,7 @@
                     <x-link-nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-link-nav>
-                    <div class="border border-l border-orange-500/30"></div>
+                    <div class="border border-l border-primary/30"></div>
                     <div class="hidden lg:flex lg:items-center lg:ms-6">
                         @if (Route::has("login"))
                             <nav class="-mx-3 flex flex-1 justify-end">
@@ -47,7 +47,7 @@
                                         <x-dropdown align="right" width="48">
                                             <x-slot name="trigger">
                                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                                    <button class="flex rounded-full border-2 border-transparent text-sm transition focus:border-gray-300 focus:outline-none">
+                                                    <button class="flex rounded-full border-2 border-transparent text-sm transition focus:border-light focus:outline-none">
                                                         <img class="h-8 w-8 rounded-full object-cover"
                                                              src="{{ Auth::user()->profile_photo_url }}"
                                                              alt="{{ Auth::user()->username }}"
@@ -56,7 +56,7 @@
                                                 @else
                                                     <span class="inline-flex rounded-md">
                                                 <button type="button"
-                                                        class="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-none active:bg-gray-50">
+                                                        class="inline-flex items-center rounded-md border border-transparent bg-light px-3 py-2 text-sm font-medium leading-4 text-dark transition duration-150 ease-in-out hover:text-dark focus:bg-dark focus:outline-none active:bg-gray-50">
                                                     {{ Auth::user()->username }}
 
                                                     <svg class="-me-0.5 ms-2 h-4 w-4"
@@ -116,8 +116,8 @@
                             </nav>
                         @endif
                     </div>
-                    <div class="flex pl-1 items-center space-x-2">
-                        <div class="border-l w-0.5 h-6 border-orange-500/30"></div>
+                    <div class="border border-l border-primary/30"></div>
+                    <div class="flex items-center space-x-2">
                         <x-switchable-theme/>
                     </div>
                 </div>

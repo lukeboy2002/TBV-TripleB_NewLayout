@@ -19,7 +19,7 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body class="font-sans antialiased bg-gray-100 dark:bg-menu/80 text-gray-700 dark:text-gray-300">
+<body class="font-sans antialiased bg-light dark:bg-dark text-dark dark:text-light">
 <x-banner/>
 <div class="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
     <livewire:navigation-menu/>

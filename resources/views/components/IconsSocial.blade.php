@@ -1,4 +1,4 @@
-<button class="me-2 inline-flex items-center rounded-lg bg-gray-200 p-2 text-center text-sm font-medium text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-500">
+<button class="me-2 inline-flex items-center rounded-lg bg-light p-2 text-center text-sm font-medium text-dark hover:bg-light/90 focus:outline-none focus:ring-2 focus:ring-light dark:bg-dark dark:text-light dark:hover:bg-dark/40 dark:focus:ring-dark/90">
     <svg class="size-5"
          aria-hidden="true"
          xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@
         />
     </svg>
 </button>
-<button class="me-2 inline-flex items-center rounded-lg bg-gray-200 p-2 text-center text-sm font-medium text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-500">
+<button class="me-2 inline-flex items-center rounded-lg bg-light p-2 text-center text-sm font-medium text-dark hover:bg-light/90 focus:outline-none focus:ring-2 focus:ring-light dark:bg-dark dark:text-light dark:hover:bg-dark/40 dark:focus:ring-dark/90">
     <svg class="size-5"
          aria-hidden="true"
          xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
         />
     </svg>
 </button>
-<button class="me-2 inline-flex items-center rounded-lg bg-gray-200 p-2 text-center text-sm font-medium text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-500">
+<button class="me-2 inline-flex items-center rounded-lg bg-light p-2 text-center text-sm font-medium text-dark hover:bg-light/90 focus:outline-none focus:ring-2 focus:ring-light dark:bg-dark dark:text-light dark:hover:bg-dark/40 dark:focus:ring-dark/90">
     <svg class="size-5"
          aria-hidden="true"
          xmlns="http://www.w3.org/2000/svg"
