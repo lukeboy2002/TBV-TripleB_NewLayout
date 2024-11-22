@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Spatie\Tags\Tag;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -22,10 +23,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesAndPermissionsSeeder::class);
 
-        $this->call(TagsSeeder::class);
-
         $this->call(CategorySeeder::class);
         $categories = Category::all();
+        $this->call(TagsSeeder::class);
+        $tags = Tag::all();
 
         $users = User::factory(10)->create();
         foreach ($users as $user) {
@@ -37,6 +38,11 @@ class DatabaseSeeder extends Seeder
             ->has(Comment::factory(15)->recycle($users))
             ->recycle([$users, $categories])
             ->create();
+        foreach ($posts as $post) {
+            $random_tag = rand(0, 3);
+            $tag = $tags[$random_tag];
+            $post->tags()->attach($tag);
+        }
 
         $admin = User::factory()
             ->has(Post::factory(45)->recycle($categories))

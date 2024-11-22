@@ -48,7 +48,7 @@ class Post extends Model
 
     public function scopeWithCategory($query, string $category): void
     {
-        $query->whereHas('categories', function ($query) use ($category) {
+        $query->whereHas('category', function ($query) use ($category) {
             $query->where('slug', $category);
         });
     }
@@ -71,6 +71,11 @@ class Post extends Model
     public function shortBody($words = 30): string
     {
         return Str::words(strip_tags($this->body), $words);
+    }
+
+    public function shortTitle($words = 7): string
+    {
+        return Str::words(strip_tags($this->title), $words);
     }
 
     public function getFormattedDate()

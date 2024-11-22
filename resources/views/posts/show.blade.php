@@ -29,7 +29,17 @@
     <div class="text-gray-500 leading-7">
         {!! $post->body !!}
     </div>
+
+    <div class="pt-8">
+        <h3 class="mb-8 text-xl font-heading font-bold">COMMENTS </h3>
+
+    </div>
     <x-slot name="side">
-        samdfkjas
+        <div class="space-y-10">
+            <x-categories/>
+            <x-latest-post/>
+            <x-tags/>
+
+        </div>
     </x-slot>
 </x-app-layout>
