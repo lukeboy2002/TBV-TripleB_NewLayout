@@ -15,6 +15,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 });
 
+Route::get('/team', function () {
+    return view('about-us');
+})->name('team');
 Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');

@@ -1,19 +1,19 @@
 <article class="p-6 bg-light rounded-lg border border-primary shadow-md dark:bg-dark">
     <header>
         <div class="flex justify-between items-center space-y-2 text-xs mb-4">
-            <x-badge-category
+            <x-badge.category
                     wire:navigate
                     href="{{ route('posts.index', ['category' => $post->category->slug]) }}"
                     :Color="$post->category->color">
                 {{ $post->category->name }}
-            </x-badge-category>
+            </x-badge.category>
 
             <div class="text-dark dark:text-light">{{ $post->likes_count }} Likes</div>
         </div>
-        <x-link-primary class="text-xl font-heading tracking-wide font-bold uppercase"
+        <x-link.primary class="text-xl font-heading tracking-wide font-bold uppercase"
                         href="{{ route('posts.show', $post->id) }}">
             {{ $post->title }}
-        </x-link-primary>
+        </x-link.primary>
     </header>
 
     <main>

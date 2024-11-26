@@ -10,9 +10,9 @@
                 />
             </div>
             <div class="w-3/4">
-                <x-link-primary href="" class="flex items-start uppercase text-sm font-semibold">
+                <x-link.primary href="" class="flex items-start uppercase text-sm font-semibold">
                     {{ $post->shortTitle() }}
-                </x-link-primary>
+                </x-link.primary>
             </div>
         </div>
     @endforeach
