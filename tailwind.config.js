@@ -28,9 +28,6 @@ export default {
                 'secondary': '#374151',
                 'error': '#C81E1E',
                 'success': '#0E9F6E',
-                'create': '#f97316',
-                'edit': '#2563eb',
-                'delete': '#ef4444',
             },
             height: {
                 '124': '31rem',

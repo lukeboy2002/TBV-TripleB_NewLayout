@@ -5,38 +5,51 @@
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-14">
                 <div class="flex items-center text-xl font-black text-primary tracking-widest">
-                    <x-application-logo/>
+                    <x-logo/>
                     TBV-TripleB
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-4 lg:-my-px lg:ms-10 lg:flex">
-                    <x-link-nav href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    <x-link.nav href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
+<<<<<<< Updated upstream
                     </x-link-nav>
                     <x-link-nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+=======
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('team') }}" :active="request()->routeIs('team')">
+                        {{ __('Team') }}
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+>>>>>>> Stashed changes
                         {{ __('Gallery') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('specials') }}" :active="request()->routeIs('specials')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('specials') }}" :active="request()->routeIs('specials')">
                         {{ __('Specials') }}
+<<<<<<< Updated upstream
                     </x-link-nav>
                     <x-link-nav href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                         {{ __('About-us') }}
                     </x-link-nav>
                     <x-link-nav href="{{ route('book') }}" :active="request()->routeIs('book')">
+=======
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('book') }}" :active="request()->routeIs('book')">
+>>>>>>> Stashed changes
                         {{ __('Book') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('events') }}" :active="request()->routeIs('events')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('events') }}" :active="request()->routeIs('events')">
                         {{ __('Events') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('shop') }}" :active="request()->routeIs('shop')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('shop') }}" :active="request()->routeIs('shop')">
                         {{ __('Shop') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Blog') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
-                    </x-link-nav>
+                    </x-link.nav>
                     <div class="border border-l border-primary/30"></div>
                     <div class="hidden lg:flex lg:items-center lg:ms-6">
                         @if (Route::has("login"))
@@ -82,10 +95,10 @@
                                                     {{ __("Manage Account") }}
                                                 </div>
 
-                                                <x-link-dropdown wire:navigate href="{{ route('profile.show') }}">
+                                                <x-link.dropdown wire:navigate href="{{ route('profile.show') }}">
                                                     {{ __("Profile") }}
-                                                </x-link-dropdown>
-                                                <div class="border-t border-orange-500/30"></div>
+                                                </x-link.dropdown>
+                                                <div class="border-t border-primary/30"></div>
 
                                                 <!-- Authentication -->
                                                 <form method="POST"
@@ -94,23 +107,23 @@
                                                 >
                                                     @csrf
 
-                                                    <x-link-dropdown href="{{ route('logout') }}"
+                                                    <x-link.dropdown href="{{ route('logout') }}"
                                                                      @click.prevent="$root.submit();"
                                                     >
                                                         {{ __("Log Out") }}
-                                                    </x-link-dropdown>
+                                                    </x-link.dropdown>
                                                 </form>
                                             </x-slot>
                                         </x-dropdown>
                                     </div>
                                 @else
                                     <div class="ml-2 space-x-2">
-                                        <x-link-nav href="{{ route('login') }}" class="text-sm">
+                                        <x-link.nav href="{{ route('login') }}" class="text-sm">
                                             Login
-                                        </x-link-nav>
-                                        <x-link-nav href="{{ route('register') }}" class="text-sm">
+                                        </x-link.nav>
+                                        <x-link.nav href="{{ route('register') }}" class="text-sm">
                                             register
-                                        </x-link-nav>
+                                        </x-link.nav>
                                     </div>
                                 @endauth
                             </nav>
@@ -126,7 +139,7 @@
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center lg:hidden">
                     <button @click="open = ! open"
-                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-orange-500 hover:bg-black/10 focus:outline-none focus:bg-black/10 focus:text-orange-500 transition duration-150 ease-in-out">
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-primary hover:bg-dark/10 focus:outline-none focus:bg-dark/10 focus:text-primary transition duration-150 ease-in-out">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                             <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
                                   stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -143,33 +156,33 @@
         <!-- Responsive Navigation Menu -->
         <div :class="{'block': open, 'hidden': ! open}" class="hidden bg-menu-light lg:hidden">
             <div class="pt-2 pb-3 space-y-1">
-                <x-link-nav-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
+                <x-link.nav-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                     {{ __('Gallery') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('specials') }}" :active="request()->routeIs('specials')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('specials') }}" :active="request()->routeIs('specials')">
                     {{ __('Specials') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                     {{ __('About-us') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('book') }}" :active="request()->routeIs('book')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('book') }}" :active="request()->routeIs('book')">
                     {{ __('Book') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('events') }}" :active="request()->routeIs('events')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('events') }}" :active="request()->routeIs('events')">
                     {{ __('Events') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('shop') }}" :active="request()->routeIs('shop')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('shop') }}" :active="request()->routeIs('shop')">
                     {{ __('Shop') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                     {{ __('Blog') }}
-                </x-link-nav-responsive>
-                <x-link-nav-responsive href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Contact') }}
-                </x-link-nav-responsive>
+                </x-link.nav-responsive>
             </div>
 
             <!-- Responsive Settings Options -->
@@ -187,7 +200,7 @@
                             @endif
 
                             <div>
-                                <div class="text-base font-medium text-gray-700 dark:text-gray-50">
+                                <div class="text-base font-medium text-dark dark:text-light">
                                     {{ Auth::user()->username }}
                                 </div>
                                 <div class="text-sm font-medium text-gray-500">
@@ -197,31 +210,31 @@
                         </div>
                         <div class="mt-3 space-y-1">
                             <!-- Account Management -->
-                            <x-link-nav-responsive href="{{ route('profile.show') }}"
+                            <x-link.nav-responsive href="{{ route('profile.show') }}"
                                                    :active="request()->routeIs('profile.show')"
                             >
                                 {{ __("Profile") }}
-                            </x-link-nav-responsive>
+                            </x-link.nav-responsive>
                             <!-- Authentication -->
                             <form method="POST"
                                   action="{{ route("logout") }}"
                                   x-data
                             >
                                 @csrf
-                                <x-link-nav-responsive href="{{ route('logout') }}"
+                                <x-link.nav-responsive href="{{ route('logout') }}"
                                                        @click.prevent="$root.submit();"
                                 >
                                     {{ __("Log Out") }}
-                                </x-link-nav-responsive>
+                                </x-link.nav-responsive>
                             </form>
                         </div>
                     @else
-                        <x-link-nav-responsive href="{{ route('login') }}">
+                        <x-link.nav-responsive href="{{ route('login') }}">
                             Login
-                        </x-link-nav-responsive>
-                        <x-link-nav-responsive href="{{ route('register') }}">
+                        </x-link.nav-responsive>
+                        <x-link.nav-responsive href="{{ route('register') }}">
                             Register
-                        </x-link-nav-responsive>
+                        </x-link.nav-responsive>
                     @endauth
                 </div>
             @endif
