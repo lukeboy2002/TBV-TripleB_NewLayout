@@ -12,30 +12,17 @@
                 <div class="hidden space-x-4 lg:-my-px lg:ms-10 lg:flex">
                     <x-link.nav href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
-<<<<<<< Updated upstream
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
-=======
-                    </x-link.nav>
-                    <x-link.nav href="{{ route('team') }}" :active="request()->routeIs('team')">
-                        {{ __('Team') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
->>>>>>> Stashed changes
                         {{ __('Gallery') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('specials') }}" :active="request()->routeIs('specials')">
                         {{ __('Specials') }}
-<<<<<<< Updated upstream
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
                         {{ __('About-us') }}
-                    </x-link-nav>
-                    <x-link-nav href="{{ route('book') }}" :active="request()->routeIs('book')">
-=======
                     </x-link.nav>
                     <x-link.nav href="{{ route('book') }}" :active="request()->routeIs('book')">
->>>>>>> Stashed changes
                         {{ __('Book') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('events') }}" :active="request()->routeIs('events')">
@@ -44,7 +31,8 @@
                     <x-link.nav href="{{ route('shop') }}" :active="request()->routeIs('shop')">
                         {{ __('Shop') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <x-link.nav href="{{ route('posts.index') }}"
+                                :active="request()->routeIs('posts.index')">
                         {{ __('Blog') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">

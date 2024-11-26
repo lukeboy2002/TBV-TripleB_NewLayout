@@ -16,7 +16,7 @@
             <textarea x-ref="input"
                       wire:model="comment"
                       @click="focused = true"
-                      class="block p-2.5 w-full text-sm bg-light text-dark dark:bg-dark dark:text-light rounded-lg border border-dark dark:border-light focus:ring-primary focus:border-primary placeholder-dark dark:placeholder-light"
+                      class="block p-2.5 w-full text-sm bg-light text-dark dark:bg-dark dark:text-light rounded-lg border border-primary focus:ring-primary focus:border-primary placeholder-dark dark:placeholder-light"
                       :rows="isEdit || focused ? '4' : '1' "
                       placeholder="Leave a comment"
                       required
