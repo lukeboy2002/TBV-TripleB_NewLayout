@@ -8,8 +8,6 @@ use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Spatie\Tags\Tag;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,6 +26,25 @@ class DatabaseSeeder extends Seeder
         $this->call(TagsSeeder::class);
         $tags = Tag::all();
 
+        $members = [[
+            //            $this->call(AdminSeeder::class),
+            $this->call(AlbertSeeder::class),
+            $this->call(AntoineSeeder::class),
+            $this->call(BeukSeeder::class),
+            $this->call(BudSeeder::class),
+            $this->call(FransSeeder::class),
+            $this->call(GuusSeeder::class),
+            $this->call(JacSeeder::class),
+            $this->call(JohanSeeder::class),
+            $this->call(JohnSeeder::class),
+            $this->call(PatrickSeeder::class),
+            $this->call(RichardSeeder::class),
+            $this->call(RolandSeeder::class),
+            $this->call(RonSeeder::class),
+            $this->call(RuudSeeder::class),
+        ]];
+        $members = User::all();
+
         $users = User::factory(10)->create();
         foreach ($users as $user) {
             $role = Role::select('id')->where('name', 'user')->first();
@@ -43,22 +60,5 @@ class DatabaseSeeder extends Seeder
             $tag = $tags[$random_tag];
             $post->tags()->attach($tag);
         }
-
-        $admin = User::factory()
-            ->has(Post::factory(45)->recycle($categories))
-            ->has(Comment::factory(120)->recycle($posts))
-//            ->has(Like::factory()->forEachSequence(
-//                ...$posts->random(100)->map(fn (Post $post
-//                ) => ['likeable_id' => $post]),
-//            ))
-            ->create([
-                'username' => 'admin',
-                'email' => 'admin@test.com',
-                'email_verified_at' => now(),
-                'password' => Hash::make('adminadmin'),
-                'remember_token' => Str::random(10),
-            ]);
-        $role = Role::select('id')->where('name', 'admin')->first();
-        $admin->roles()->attach($role);
     }
 }
