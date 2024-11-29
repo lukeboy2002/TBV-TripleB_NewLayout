@@ -18,6 +18,7 @@ class TeamIndex extends Component
             ->select(
                 'users.username',
                 'profiles.image',
+                'profiles.biography',
                 DB::raw('COALESCE(SUM(points.points), 0) AS total_points'),
                 DB::raw('COALESCE(SUM(CASE WHEN games.winner_id = users.id THEN 1 ELSE 0 END), 0) AS total_wins'),
                 DB::raw('COALESCE(SUM(CASE WHEN games.cup_winner_id = users.id THEN 1 ELSE 0 END), 0) AS total_cups'),
@@ -31,7 +32,7 @@ class TeamIndex extends Component
                     ->on('points.game_id', '=', 'games.id');
             })
             ->whereIn('users.id', User::role('member')->pluck('id'))
-            ->groupBy('users.id', 'profiles.image') // Include profiles.image in groupBy
+            ->groupBy('users.id', 'profiles.image', 'profiles.biography') // Include profiles.image in groupBy
             ->simplePaginate(1); // Adjust the number of items per page as needed
 
         return view('livewire.team-index', [
