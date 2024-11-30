@@ -9,6 +9,7 @@
     @endforeach
 
     <div class="pt-4">
-        {{ $comments->onEachSide(1)->links() }}
+        {{--        {{ $comments->onEachSide(1)->links() }}--}}
+        {{ $comments->onEachSide(1)->links(data: ['scrollTo' => false]) }}
     </div>
 </div>

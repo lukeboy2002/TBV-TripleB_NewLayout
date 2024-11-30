@@ -56,15 +56,15 @@
                 <div>
                     <p class="text-sm leading-5 text-dark dark:text-light">
                         <span>{!! __("Showing") !!}</span>
-                        <span class="font-medium font-semibold text-primary">
+                        <span class="font-semibold text-primary">
                             {{ $paginator->firstItem() }}
                         </span>
                         <span>{!! __("to") !!}</span>
-                        <span class="font-medium font-semibold text-primary">
+                        <span class="font-semibold text-primary">
                             {{ $paginator->lastItem() }}
                         </span>
                         <span>{!! __("of") !!}</span>
-                        <span class="font-medium font-semibold text-primary">
+                        <span class="font-semibold text-primary">
                             {{ $paginator->total() }}
                         </span>
                         <span>{!! __("results") !!}</span>
@@ -171,11 +171,8 @@
                                 </button>
                             @else
                                 <span aria-disabled="true" aria-label="{{ __("pagination.next") }}">
-<<<<<<< Updated upstream
-                                    <span class="relative -ml-px inline-flex cursor-default items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium leading-5 text-gray-500 dark:border-gray-600 dark:bg-menu/50"
-=======
+
                                     <span class="relative -ml-px inline-flex cursor-default items-center rounded-r-md border border-primary bg-light px-2 py-2 text-sm font-medium leading-5 text-dark dark:border-primary dark:bg-dark dark:text-light"
->>>>>>> Stashed changes
                                           aria-hidden="true">
                                         <svg class="h-5 w-5"
                                              fill="currentColor"

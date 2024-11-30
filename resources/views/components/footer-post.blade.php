@@ -4,7 +4,7 @@
             <div class="flex gap-4">
                 <img src="{{ asset($post->getImage()) }}"
                      alt="{{ $post->title  }}"
-                     class="max-h-32 w-full rounded-tl-lg object-top object-cover"
+                     class="max-h-32 w-full rounded-lg object-top object-cover"
                 />
                 <div>
                     <a href="{{ route('posts.show', $post->id) }}"

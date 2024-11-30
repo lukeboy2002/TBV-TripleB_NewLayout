@@ -13,15 +13,16 @@
                     <x-link.nav href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-link.nav>
+                    <x-link.nav href="{{ route('team') }}" :active="request()->routeIs('team')">
+                        {{ __('Team') }}
+                    </x-link.nav>
                     <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                         {{ __('Gallery') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('specials') }}" :active="request()->routeIs('specials')">
                         {{ __('Specials') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
-                        {{ __('About-us') }}
-                    </x-link.nav>
+
                     <x-link.nav href="{{ route('book') }}" :active="request()->routeIs('book')">
                         {{ __('Book') }}
                     </x-link.nav>
@@ -87,7 +88,12 @@
                                                     {{ __("Profile") }}
                                                 </x-link.dropdown>
                                                 <div class="border-t border-primary/30"></div>
-
+                                                @if(auth()->user()->can('create:game'))
+                                                    <x-link.dropdown wire:navigate href="{{ route('games.create') }}">
+                                                        {{ __("Create game") }}
+                                                    </x-link.dropdown>
+                                                @endif
+                                                <div class="border-t border-primary/30"></div>
                                                 <!-- Authentication -->
                                                 <form method="POST"
                                                       action="{{ route("logout") }}"
@@ -147,14 +153,15 @@
                 <x-link.nav-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
+                    {{ __('Team') }}
+                </x-link.nav-responsive>
+
                 <x-link.nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                     {{ __('Gallery') }}
                 </x-link.nav-responsive>
                 <x-link.nav-responsive href="{{ route('specials') }}" :active="request()->routeIs('specials')">
                     {{ __('Specials') }}
-                </x-link.nav-responsive>
-                <x-link.nav-responsive href="{{ route('about-us') }}" :active="request()->routeIs('about-us')">
-                    {{ __('About-us') }}
                 </x-link.nav-responsive>
                 <x-link.nav-responsive href="{{ route('book') }}" :active="request()->routeIs('book')">
                     {{ __('Book') }}

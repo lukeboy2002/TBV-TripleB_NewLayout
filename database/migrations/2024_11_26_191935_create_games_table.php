@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->longText('description');
-            $table->string('color')->default('default');
+            $table->date('date');
+            $table->integer('winner_id')->nullable(); // Player ID who won the match
+            $table->integer('cup_winner_id')->nullable(); // First player to lose, wins the cup
+            $table->string('image')->nullable(); // To store photos for matches
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('games');
     }
 };
