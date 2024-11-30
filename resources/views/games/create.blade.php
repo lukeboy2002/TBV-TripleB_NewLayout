@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="create game">
     @push('styles')
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     @endpush
@@ -9,7 +9,7 @@
              class="absolute inset-0 w-full h-124 object-cover object-bottom"
         />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <h3 class="text-orange-500 font-heading font-semibold tracking-wide text-xl md:text-2xl uppercase">
+            <h3 class="text-primary font-heading font-semibold tracking-wide text-xl md:text-2xl uppercase">
                 Create New Game
             </h3>
             <h1 class="text-5xl font-heading font-black tracking-wider uppercase text-white">

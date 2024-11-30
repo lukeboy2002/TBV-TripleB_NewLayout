@@ -17,7 +17,7 @@
     <livewire:team-index/>
 
     <x-slot name="side">
-        <p class="text-xl">To be Continued</p>
+        <x-scorelist/>
     </x-slot>
 
 

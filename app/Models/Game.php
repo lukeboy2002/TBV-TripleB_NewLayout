@@ -42,6 +42,11 @@ class Game extends Model
         return $this->belongsTo(User::class, 'cup_winner_id');
     }
 
+    public function getFormattedDate()
+    {
+        return $this->date->format('j F Y');
+    }
+
     /**
      * Get the attributes that should be cast.
      *

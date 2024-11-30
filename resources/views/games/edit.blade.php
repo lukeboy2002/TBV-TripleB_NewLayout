@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="edit game">
     @push('styles')
         <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet"/>
         <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
@@ -10,7 +10,7 @@
              class="absolute inset-0 w-full h-124 object-cover object-bottom"
         />
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <h3 class="text-orange-500 font-heading font-semibold tracking-wide text-xl md:text-2xl uppercase">
+            <h3 class="text-primary font-heading font-semibold tracking-wide text-xl md:text-2xl uppercase">
                 Create New Game
             </h3>
             <h1 class="text-5xl font-heading font-black tracking-wider uppercase text-white">
@@ -48,7 +48,7 @@
                                 <tr class="bg-light border-b  dark:bg-dark border-dark dark:border-light dark:hover:bg-[#232221] hover:bg-gray-300">
 
                                     <th scope=" row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-6 py-4 font-medium text-dark whitespace-nowrap dark:text-white">
                                         {{ ucfirst($user->username) }}
                                     </th>
                                     <td class="px-6 py-4">
