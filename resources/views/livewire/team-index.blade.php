@@ -6,7 +6,8 @@
                      class="h-full sm:h-80 min-w-60 rounded-t-lg sm:rounded-t-none sm:rounded-tl-lg">
                 <div class="ml-4 w-full space-y-4 sm:space-y-6">
                     <div class="pt-6 sm:pt-0">
-                        <p class="text-2xl font-black text-primary">{{ ucfirst($user->username) }}</p>
+                        <a href="#"
+                           class="text-2xl font-black text-primary">{{ ucfirst($user->username) }}</a>
                     </div>
 
                     <div class="w-full space-y-2 text-sm text-dark dark:text-light md:hidden">

@@ -88,7 +88,12 @@
                                                     {{ __("Profile") }}
                                                 </x-link.dropdown>
                                                 <div class="border-t border-primary/30"></div>
-
+                                                @if(auth()->user()->can('create:game'))
+                                                    <x-link.dropdown wire:navigate href="{{ route('games.create') }}">
+                                                        {{ __("Create game") }}
+                                                    </x-link.dropdown>
+                                                @endif
+                                                <div class="border-t border-primary/30"></div>
                                                 <!-- Authentication -->
                                                 <form method="POST"
                                                       action="{{ route("logout") }}"

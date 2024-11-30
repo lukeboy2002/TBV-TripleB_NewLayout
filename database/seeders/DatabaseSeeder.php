@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $tags = Tag::all();
 
         $members = [[
-            //            $this->call(AdminSeeder::class),
+            $this->call(AdminSeeder::class),
             $this->call(AlbertSeeder::class),
             $this->call(AntoineSeeder::class),
             $this->call(BeukSeeder::class),

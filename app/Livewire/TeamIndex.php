@@ -16,6 +16,7 @@ class TeamIndex extends Component
         // Retrieve paginated users with their scores
         $users = DB::table('users')
             ->select(
+                'users.id',
                 'users.username',
                 'profiles.image',
                 'profiles.biography',

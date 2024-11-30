@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FilepondController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
@@ -14,7 +16,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     //    Route::get('/dashboard', function () {
     //        return view('dashboard');
     //    })->name('dashboard');
+    Route::resource('games', GameController::class)->except(['destroy']);
 
+    Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
+    Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
 });
 
 Route::get('/gallery', function () {
