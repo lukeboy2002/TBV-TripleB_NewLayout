@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Comment;
+use App\Models\Event;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
             'post' => Post::class,
             'comment' => Comment::class,
             'user' => User::class,
+            'event' => Event::class,
+
         ]);
     }
 }

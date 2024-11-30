@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Event;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
@@ -59,6 +60,15 @@ class DatabaseSeeder extends Seeder
             $random_tag = rand(0, 3);
             $tag = $tags[$random_tag];
             $post->tags()->attach($tag);
+        }
+
+        $events = Event::factory(20)
+            ->recycle([$users])
+            ->create();
+        foreach ($events as $event) {
+            $random_tag = rand(0, 3);
+            $tag = $tags[$random_tag];
+            $event->tags()->attach($tag);
         }
     }
 }
