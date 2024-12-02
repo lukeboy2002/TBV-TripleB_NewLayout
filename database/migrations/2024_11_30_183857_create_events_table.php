@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->longText('body');
-            $table->date('date');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->string('location')->nullable();
             $table->string('city')->nullable();
             $table->string('image', 255)->nullable();

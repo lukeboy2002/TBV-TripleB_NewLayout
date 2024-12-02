@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
@@ -11,6 +12,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 route::get('/team', TeamController::class)->name('team');
+Route::resource('/events', EventController::class)->only(['index', 'show']);
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //    Route::get('/dashboard', function () {
@@ -32,9 +34,7 @@ Route::get('/specials', function () {
 Route::get('/book', function () {
     return view('book');
 })->name('book');
-Route::get('/events', function () {
-    return view('events');
-})->name('events');
+
 Route::get('/shop', function () {
     return view('shop');
 })->name('shop');

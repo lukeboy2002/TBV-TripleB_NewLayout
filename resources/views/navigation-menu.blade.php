@@ -16,6 +16,13 @@
                     <x-link.nav href="{{ route('team') }}" :active="request()->routeIs('team')">
                         {{ __('Team') }}
                     </x-link.nav>
+                    <x-link.nav href="{{ route('posts.index') }}"
+                                :active="request()->routeIs('posts.index')">
+                        {{ __('Blog') }}
+                    </x-link.nav>
+                    <x-link.nav href="{{ route('events.index') }}" :active="request()->routeIs('events.*')">
+                        {{ __('Events') }}
+                    </x-link.nav>
                     <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                         {{ __('Gallery') }}
                     </x-link.nav>
@@ -26,16 +33,11 @@
                     <x-link.nav href="{{ route('book') }}" :active="request()->routeIs('book')">
                         {{ __('Book') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('events') }}" :active="request()->routeIs('events')">
-                        {{ __('Events') }}
-                    </x-link.nav>
+
                     <x-link.nav href="{{ route('shop') }}" :active="request()->routeIs('shop')">
                         {{ __('Shop') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('posts.index') }}"
-                                :active="request()->routeIs('posts.index')">
-                        {{ __('Blog') }}
-                    </x-link.nav>
+
                     <x-link.nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-link.nav>
@@ -156,6 +158,12 @@
                 <x-link.nav-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
                     {{ __('Team') }}
                 </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    {{ __('Blog') }}
+                </x-link.nav-responsive>
+                <x-link.nav-responsive href="{{ route('events.index') }}" :active="request()->routeIs('events.*')">
+                    {{ __('Events') }}
+                </x-link.nav-responsive>
 
                 <x-link.nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                     {{ __('Gallery') }}
@@ -166,15 +174,11 @@
                 <x-link.nav-responsive href="{{ route('book') }}" :active="request()->routeIs('book')">
                     {{ __('Book') }}
                 </x-link.nav-responsive>
-                <x-link.nav-responsive href="{{ route('events') }}" :active="request()->routeIs('events')">
-                    {{ __('Events') }}
-                </x-link.nav-responsive>
+
                 <x-link.nav-responsive href="{{ route('shop') }}" :active="request()->routeIs('shop')">
                     {{ __('Shop') }}
                 </x-link.nav-responsive>
-                <x-link.nav-responsive href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                    {{ __('Blog') }}
-                </x-link.nav-responsive>
+
                 <x-link.nav-responsive href="{{ route('contact') }}" :active="request()->routeIs('contact')">
                     {{ __('Contact') }}
                 </x-link.nav-responsive>

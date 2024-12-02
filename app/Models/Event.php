@@ -27,7 +27,8 @@ class Event extends Model
         'slug',
         'description',
         'body',
-        'date',
+        'startdate',
+        'enddate',
         'location',
         'city',
         'image',
@@ -54,5 +55,28 @@ class Event extends Model
         }
 
         return '/storage/'.$this->image;
+    }
+
+    //    public function getFormattedDate()
+    //    {
+    //        return $this->published_at->format('j F Y');
+    //    }
+    //
+    //    public function getFormattedDate()
+    //    {
+    //        return $this->published_at->format('j F Y');
+    //    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'start_date' => 'date',
+            'end_date' => 'date',
+        ];
     }
 }

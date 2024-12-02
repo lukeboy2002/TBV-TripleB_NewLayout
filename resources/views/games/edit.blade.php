@@ -19,7 +19,7 @@
         </div>
     </x-slot>
 
-    <x-card.default>
+    <x-card.default class="p-6">
         <form action="{{ route('games.update', $game->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')

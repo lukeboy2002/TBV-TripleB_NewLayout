@@ -24,7 +24,7 @@ class EventFactory extends Factory
             'slug' => fake()->unique()->slug,
             'description' => fake()->sentence,
             'body' => Collection::times(4, fn () => fake()->realText(1250))->join(PHP_EOL.PHP_EOL),
-            'date' => fake()->date,
+            'start_date' => fake()->dateTimeBetween('+1 Week', '+5 week'),
             'location' => fake()->city,
             'city' => fake()->streetName,
             'image' => fake()->imageUrl(),

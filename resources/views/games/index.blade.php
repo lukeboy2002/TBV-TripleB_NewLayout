@@ -14,7 +14,7 @@
         </div>
     </x-slot>
 
-    <x-card.default>
+    <x-card.default class="p-6">
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             @forelse($games as $game)
                 <a href="{{ route('games.show', $game->id) }}"
