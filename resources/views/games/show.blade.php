@@ -15,7 +15,7 @@
     </x-slot>
 
     <div class="sm:flex justify-between gap-4">
-        <x-card.default class="w-full sm:w-2/3">
+        <x-card.default class="w-full sm:w-2/3 p-6">
             <table class="w-full text-sm text-left rtl:text-right text-dark dark:text-light">
                 <thead class="text-xs text-dark uppercase bg-light dark:bg-dark dark:text-light">
                 <tr>
@@ -42,7 +42,7 @@
                 </tbody>
             </table>
         </x-card.default>
-        <x-card.default class="w-full sm:w-1/3 mt-4 sm:mt-0 space-y-6">
+        <x-card.default class="w-full sm:w-1/3 mt-4 sm:mt-0 space-y-6 p-6">
             <div>
                 <x-heading>Game Winner <i class="ri-medal-line"></i></x-heading>
                 <p>

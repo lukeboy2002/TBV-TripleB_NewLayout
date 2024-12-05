@@ -2,12 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Event;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Spatie\Tags\Tag;
 
-class Tags extends Component
+class UpcomingEvent extends Component
 {
     /**
      * Create a new component instance.
@@ -22,8 +22,8 @@ class Tags extends Component
      */
     public function render(): View|Closure|string
     {
-        $tags = Tag::all();
+        $events = Event::orderBy('start_date', 'asc')->limit(1)->get();
 
-        return view('components.tags', compact('tags'));
+        return view('components.upcoming-event', compact('events'));
     }
 }

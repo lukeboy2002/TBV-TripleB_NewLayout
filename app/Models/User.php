@@ -88,6 +88,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Point::class);
     }
 
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class);
+    }
+
     protected function defaultProfilePhotoUrl()
     {
         $username = trim(collect(explode(' ', $this->username))->map(function (

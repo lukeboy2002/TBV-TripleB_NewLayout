@@ -1,12 +1,4 @@
 <div>
-    {{--    <div>--}}
-    {{--        <div class="md:flex sm:justify-end md:justify-between items-center py-4">--}}
-    {{--            <a wire:navigate href="{{ route('posts.index') }}">All categories</a>--}}
-    {{--            <x-search-box/>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
-
     <div class="flex justify-between items-center mb-4">
         <div>
             <div class="flex items-center space-x-2 text-md text-dark dark:text-light">
@@ -42,14 +34,16 @@
             </div>
         </div>
         <div class="flex space-x-4">
-            <button class="{{ $sort === "desc" ? "flex items-center text-primary border-b border-primary" : "flex items-center text-dark dark:text-light" }} py-1"
-                    wire:click="setSort('desc')"
+            <button
+                class="{{ $sort === "desc" ? "flex items-center text-primary border-b border-primary" : "flex items-center text-dark dark:text-light" }} py-1"
+                wire:click="setSort('desc')"
             >
                 <x-heroicon-s-bars-arrow-down class="mr-2 size-4"/>
                 {{ __('Latest') }}
             </button>
-            <button class="{{ $sort === "asc" ? "flex items-center text-primary border-b border-primary" : "flex items-center text-dark dark:text-light" }} py-1"
-                    wire:click="setSort('asc')"
+            <button
+                class="{{ $sort === "asc" ? "flex items-center text-primary border-b border-primary" : "flex items-center text-dark dark:text-light" }} py-1"
+                wire:click="setSort('asc')"
             >
                 <x-heroicon-s-bars-arrow-up class="mr-2 size-4"/>
                 {{ __('Oldest') }}

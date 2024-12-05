@@ -18,7 +18,7 @@
         </div>
     </x-slot>
 
-    <x-card.default>
+    <x-card.default class="p-6">
         <form action="{{ route('games.store') }}" method="POST">
             @csrf
 
