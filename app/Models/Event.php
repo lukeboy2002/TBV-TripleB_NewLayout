@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -46,6 +47,18 @@ class Event extends Model
                 'source' => 'title',
             ],
         ];
+    }
+
+    public function scopeUpcoming($query): void
+    {
+        $query->where('start_date', '>=', Carbon::now());
+    }
+
+    public function scopeSearch($query, string $search = '')
+    {
+        $query->where('title', 'like', "%{$search}%")
+            ->orwhere('description', 'like', "%{$search}%")
+            ->orWhere('body', 'like', "%{$search}%");
     }
 
     public function getImage()

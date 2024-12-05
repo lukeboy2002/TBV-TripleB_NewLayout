@@ -12,10 +12,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('start_date', 'asc')
-            ->paginate(4);
-
-        return view('events.index', compact('events'));
+        return view('events.index');
     }
 
     /**
@@ -39,7 +36,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view('events.show', compact('event'));
     }
 
     /**

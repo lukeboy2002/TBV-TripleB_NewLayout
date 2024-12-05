@@ -14,9 +14,9 @@
         <header class="mb-2">
             <div class="flex justify-between items-center text-gray-500">
                 <x-badge.category
-                        wire:navigate
-                        href="{{ route('posts.index', ['category' => $post->category->slug]) }}"
-                        :Color="$post->category->color">
+                    wire:navigate
+                    href="{{ route('posts.index', ['category' => $post->category->slug]) }}"
+                    :Color="$post->category->color">
                     {{ $post->category->name }}
                 </x-badge.category>
                 <div>
@@ -38,8 +38,8 @@
         <footer class="flex pt-4">
             @foreach ($post->tags as $tag)
                 <x-badge.tag
-                        wire:navigate
-                        href="{{ route('posts.index', ['tag' => $tag->slug]) }}">
+                    wire:navigate
+                    href="{{ route('posts.index', ['tag' => $tag->slug]) }}">
                     {{ $tag->name }}
                 </x-badge.tag>
             @endforeach
@@ -53,7 +53,7 @@
         <div class="space-y-10">
             <x-categories/>
             <x-latest-post/>
-            <x-tags/>
+            <x-post-tags/>
         </div>
     </x-slot>
 </x-app-layout>
