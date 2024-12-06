@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Album;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Contact;
@@ -73,5 +74,6 @@ class DatabaseSeeder extends Seeder
         }
 
         Contact::factory(20)->create();
+        Album::factory(10)->create();
     }
 }

@@ -23,7 +23,7 @@
                     <x-link.nav href="{{ route('events.index') }}" :active="request()->routeIs('events.*')">
                         {{ __('Events') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+                    <x-link.nav href="{{ route('albums.index') }}" :active="request()->routeIs('albums.*')">
                         {{ __('Gallery') }}
                     </x-link.nav>
                     <x-link.nav href="{{ route('contact.create') }}" :active="request()->routeIs('contact')">
@@ -154,7 +154,7 @@
                     {{ __('Events') }}
                 </x-link.nav-responsive>
 
-                <x-link.nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
+                <x-link.nav-responsive href="{{ route('albums.index') }}" :active="request()->routeIs('albums.*')">
                     {{ __('Gallery') }}
                 </x-link.nav-responsive>
                 <x-link.nav-responsive href="{{ route('contact.create') }}" :active="request()->routeIs('contact.*')">

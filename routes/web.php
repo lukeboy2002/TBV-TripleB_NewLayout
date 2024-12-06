@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FilepondController;
@@ -16,6 +17,8 @@ route::get('/team', TeamController::class)->name('team');
 Route::resource('/events', EventController::class)->only(['index', 'show']);
 Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
+Route::get('/albums/{album:slug}', [AlbumController::class, 'show'])->name('albums.show');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //    Route::get('/dashboard', function () {
@@ -26,7 +29,3 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
     Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
 });
-
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');

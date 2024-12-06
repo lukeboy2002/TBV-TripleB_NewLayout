@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Album;
 use App\Models\Comment;
 use App\Models\Event;
 use App\Models\Post;
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             'comment' => Comment::class,
             'user' => User::class,
             'event' => Event::class,
+            'album' => Album::class,
 
         ]);
     }
