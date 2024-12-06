@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\Post;
 use App\Models\Role;
@@ -70,5 +71,7 @@ class DatabaseSeeder extends Seeder
             $tag = $tags[$random_tag];
             $event->tags()->attach($tag);
         }
+
+        Contact::factory(20)->create();
     }
 }
