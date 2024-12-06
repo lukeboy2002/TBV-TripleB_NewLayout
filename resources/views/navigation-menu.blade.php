@@ -106,9 +106,11 @@
                                         <x-link.nav href="{{ route('login') }}" class="text-sm">
                                             Login
                                         </x-link.nav>
-                                        <x-link.nav href="{{ route('register') }}" class="text-sm">
-                                            register
-                                        </x-link.nav>
+                                        @if (Route::has('register'))
+                                            <x-link.nav href="{{ route('register') }}" class="text-sm">
+                                                register
+                                            </x-link.nav>
+                                        @endif
                                     </div>
                                 @endauth
                             </nav>
@@ -209,9 +211,11 @@
                         <x-link.nav-responsive href="{{ route('login') }}">
                             Login
                         </x-link.nav-responsive>
-                        <x-link.nav-responsive href="{{ route('register') }}">
-                            Register
-                        </x-link.nav-responsive>
+                        @if (Route::has('register'))
+                            <x-link.nav-responsive href="{{ route('register') }}">
+                                Register
+                            </x-link.nav-responsive>
+                        @endif
                     @endauth
                 </div>
             @endif
