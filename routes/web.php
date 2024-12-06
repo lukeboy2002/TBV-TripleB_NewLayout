@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\GameController;
@@ -13,6 +14,8 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 route::get('/team', TeamController::class)->name('team');
 Route::resource('/events', EventController::class)->only(['index', 'show']);
+Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //    Route::get('/dashboard', function () {
@@ -27,17 +30,3 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
-Route::get('/specials', function () {
-    return view('specials');
-})->name('specials');
-
-Route::get('/book', function () {
-    return view('book');
-})->name('book');
-
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');

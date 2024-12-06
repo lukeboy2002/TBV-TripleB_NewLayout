@@ -1,0 +1,37 @@
+.ck.ck-toolbar {
+    @apply bg-light dark:bg-dark border-dark dark:border-light rounded-t-lg !important
+}
+
+.ck-button {
+    @apply text-dark dark:text-light bg-light dark:bg-dark !important
+}
+
+.ck-on {
+    @apply bg-light dark:bg-dark !important
+}
+
+.ck-toolbar__separator {
+    @apply bg-dark dark:bg-light !important
+}
+
+.ck-editor__editable {
+    @apply bg-light dark:bg-dark !important
+}
+
+.ck.ck-editor__editable_inline {
+    @apply border-dark dark:border-light !important
+}
+
+.ck.ck-editor__editable_inline:active {
+    @apply border-primary dark:border-primary ring-1 ring-primary dark:focus:ring-primary !important
+}
+
+.ck.ck-editor__editable_inline:focus {
+    @apply border-primary dark:border-primary ring-1 ring-primary dark:focus:ring-primary !important
+}
+
+.ck-rounded-corners {
+    @apply rounded-b-lg !important
+}
+
+

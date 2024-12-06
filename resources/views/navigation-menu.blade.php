@@ -26,19 +26,7 @@
                     <x-link.nav href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                         {{ __('Gallery') }}
                     </x-link.nav>
-                    <x-link.nav href="{{ route('specials') }}" :active="request()->routeIs('specials')">
-                        {{ __('Specials') }}
-                    </x-link.nav>
-
-                    <x-link.nav href="{{ route('book') }}" :active="request()->routeIs('book')">
-                        {{ __('Book') }}
-                    </x-link.nav>
-
-                    <x-link.nav href="{{ route('shop') }}" :active="request()->routeIs('shop')">
-                        {{ __('Shop') }}
-                    </x-link.nav>
-
-                    <x-link.nav href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    <x-link.nav href="{{ route('contact.create') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-link.nav>
                     <div class="border border-l border-primary/30"></div>
@@ -51,7 +39,8 @@
                                         <x-dropdown align="right" width="48">
                                             <x-slot name="trigger">
                                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                                    <button class="flex rounded-full border-2 border-transparent text-sm transition focus:border-light focus:outline-none">
+                                                    <button
+                                                        class="flex rounded-full border-2 border-transparent text-sm transition focus:border-light focus:outline-none">
                                                         <img class="h-8 w-8 rounded-full object-cover"
                                                              src="{{ Auth::user()->profile_photo_url }}"
                                                              alt="{{ Auth::user()->username }}"
@@ -168,18 +157,7 @@
                 <x-link.nav-responsive href="{{ route('gallery') }}" :active="request()->routeIs('gallery')">
                     {{ __('Gallery') }}
                 </x-link.nav-responsive>
-                <x-link.nav-responsive href="{{ route('specials') }}" :active="request()->routeIs('specials')">
-                    {{ __('Specials') }}
-                </x-link.nav-responsive>
-                <x-link.nav-responsive href="{{ route('book') }}" :active="request()->routeIs('book')">
-                    {{ __('Book') }}
-                </x-link.nav-responsive>
-
-                <x-link.nav-responsive href="{{ route('shop') }}" :active="request()->routeIs('shop')">
-                    {{ __('Shop') }}
-                </x-link.nav-responsive>
-
-                <x-link.nav-responsive href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                <x-link.nav-responsive href="{{ route('contact.create') }}" :active="request()->routeIs('contact.*')">
                     {{ __('Contact') }}
                 </x-link.nav-responsive>
             </div>

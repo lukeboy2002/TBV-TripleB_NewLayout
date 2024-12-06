@@ -20,7 +20,7 @@
                     <x-heroicon-o-exclamation-circle x-show="style == 'danger'" class="size-5"/>
                     <x-heroicon-o-exclamation-triangle x-show="style == 'warning'" class="size-5"/>
                     <x-heroicon-o-question-mark-circle
-                            x-show="style != 'success' && style != 'danger' && style != 'warning'" class="size-5"/>
+                        x-show="style != 'success' && style != 'danger' && style != 'warning'" class="size-5"/>
                 </span>
 
                 <p class="ms-3 font-medium text-sm text-gray-700 truncate" x-text="message"></p>

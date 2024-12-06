@@ -1,5 +1,6 @@
 @import "select2.css";
 @import "filepond.css";
+@import "ckeditor.css";
 
 @tailwind base;
 @tailwind components;
