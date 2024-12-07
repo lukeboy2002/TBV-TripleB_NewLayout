@@ -1,10 +1,9 @@
 <div class="sticky top-0 z-40">
-
     <nav x-data="{ open: false }" class="bg-menu/90">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center h-14">
-                <div class="flex items-center text-xl font-black text-primary tracking-widest">
+                <div class="flex items-center text-xl font-heading font-black text-primary tracking-widest">
                     <x-logo/>
                     TBV-TripleB
                 </div>
@@ -78,13 +77,11 @@
                                                 <x-link.dropdown wire:navigate href="{{ route('profile.show') }}">
                                                     {{ __("Profile") }}
                                                 </x-link.dropdown>
-                                                <div class="border-t border-primary/30"></div>
-                                                @if(auth()->user()->can('create:game'))
-                                                    <x-link.dropdown wire:navigate href="{{ route('games.create') }}">
-                                                        {{ __("Create game") }}
-                                                    </x-link.dropdown>
-                                                @endif
-                                                <div class="border-t border-primary/30"></div>
+                                                @hasanyrole('admin|member')
+                                                <x-link.dropdown wire:navigate href="{{ route('dashboard') }}">
+                                                    {{ __("Dashboard") }}
+                                                </x-link.dropdown>
+                                                @endhasanyrole
                                                 <!-- Authentication -->
                                                 <form method="POST"
                                                       action="{{ route("logout") }}"
@@ -194,6 +191,12 @@
                             >
                                 {{ __("Profile") }}
                             </x-link.nav-responsive>
+                            @hasanyrole('admin|member')
+                            <x-link.nav-responsive wire:navigate href="{{ route('dashboard') }}">
+                                {{ __("Dashboard") }}
+                            </x-link.nav-responsive>
+                            @endhasanyrole
+
                             <!-- Authentication -->
                             <form method="POST"
                                   action="{{ route("logout") }}"

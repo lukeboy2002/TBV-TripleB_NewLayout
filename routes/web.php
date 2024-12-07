@@ -8,6 +8,7 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -21,10 +22,15 @@ Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
 Route::get('/albums/{album:slug}', [AlbumController::class, 'show'])->name('albums.show');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    //    Route::get('/dashboard', function () {
-    //        return view('dashboard');
-    //    })->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
     Route::resource('games', GameController::class)->except(['destroy']);
+    Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
+
+    Route::resource('/users', UserController::class);
 
     Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
     Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
