@@ -35,6 +35,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'username',
             'email',
             'password',
+            'invitedby',
         ];
 
     /**
@@ -96,6 +97,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function scopeSearch($query, $value)
+    {
+        $query->where('username', 'like', "%{$value}%")
+            ->orWhere('email', 'like', "%{$value}%");
     }
 
     protected function defaultProfilePhotoUrl()

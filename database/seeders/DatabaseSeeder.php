@@ -74,6 +74,8 @@ class DatabaseSeeder extends Seeder
         }
 
         Contact::factory(20)->create();
-        Album::factory(10)->create();
+        Album::factory(10)
+            ->recycle([$users])
+            ->create();
     }
 }

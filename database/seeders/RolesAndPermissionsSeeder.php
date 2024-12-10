@@ -61,6 +61,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $albumPermission3 = Permission::create(['name' => 'update:album']);
         $albumPermission4 = Permission::create(['name' => 'delete:album']);
 
+        // invitation
+        $invitationPermission1 = Permission::create(['name' => 'create:invitation']);
         // CREATE ROLES
         $userRole = Role::create(['name' => 'user'])->syncPermissions([
             $miscPermission,
@@ -95,6 +97,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $albumPermission2,
             $albumPermission3,
             $albumPermission4,
+            $invitationPermission1,
         ]);
         $memberRole = Role::create(['name' => 'member'])->syncPermissions([
             $userPermission1,

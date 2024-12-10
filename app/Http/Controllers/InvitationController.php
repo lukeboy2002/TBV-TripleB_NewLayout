@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class InvitationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.users.index');
+        //
     }
 
     /**
@@ -21,7 +21,7 @@ class UserController extends Controller
     public function create()
     {
         if (auth()->user()->hasPermissionTo('create:user')) {
-            return view('admin.users.create');
+            return view('admin.invitation.create');
         } else {
             abort(403);
         }

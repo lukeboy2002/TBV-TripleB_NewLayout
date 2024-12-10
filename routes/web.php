@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
@@ -31,6 +32,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
 
     Route::resource('/users', UserController::class);
+    Route::resource('/invitations', InvitationController::class);
 
     Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
     Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
