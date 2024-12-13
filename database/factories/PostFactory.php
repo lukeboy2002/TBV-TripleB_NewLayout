@@ -28,7 +28,7 @@ class PostFactory extends Factory
             'body' => Collection::times(4, fn () => fake()->realText(1250))->join(PHP_EOL.PHP_EOL),
             'image' => fake()->imageUrl(),
             'featured' => fake()->boolean,
-            'published_at' => fake()->dateTimeBetween('-1 Week', '+1 week'),
+            'published_at' => fake()->datetBetween('-1 Week', '+1 week'),
         ];
     }
 }

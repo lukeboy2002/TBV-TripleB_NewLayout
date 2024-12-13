@@ -15,12 +15,12 @@ class HomeController extends Controller
         $featuredPosts = Post::published()
             ->featured()
             ->with('author', 'category')
-            ->orderBy('published_at', 'desc')
+            ->latest()
             ->take(1)
             ->get();
 
         $latestPosts = Post::published()
-            ->orderBy('published_at', 'desc')
+            ->latest()
             ->with('author', 'category')
             ->take(2)
             ->get();

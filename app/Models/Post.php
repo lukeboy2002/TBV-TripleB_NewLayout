@@ -23,12 +23,16 @@ class Post extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable
-        = [
-            'username',
-            'email',
-            'password',
-        ];
+    protected $fillable = [
+        'user_id',
+        'category_id',
+        'title',
+        'slug',
+        'body',
+        'image',
+        'published_at',
+        'featured',
+    ];
 
     public function author(): BelongsTo
     {
