@@ -79,6 +79,10 @@
                                                     {{ __("Profile") }}
                                                 </x-link.dropdown>
                                                 <div class="border-t border-primary/30"></div>
+                                                <x-link.dropdown wire:navigate href="{{ route('invitation.create') }}">
+                                                    {{ __("Invite user") }}
+                                                </x-link.dropdown>
+                                                <div class="border-t border-primary/30"></div>
                                                 @if(auth()->user()->can('create:game'))
                                                     <x-link.dropdown wire:navigate href="{{ route('games.create') }}">
                                                         {{ __("Create game") }}
@@ -193,6 +197,9 @@
                                                    :active="request()->routeIs('profile.show')"
                             >
                                 {{ __("Profile") }}
+                            </x-link.nav-responsive>
+                            <x-link.nav-responsive wire:navigate href="{{ route('invitation.create') }}">
+                                {{ __("Invite user") }}
                             </x-link.nav-responsive>
                             <!-- Authentication -->
                             <form method="POST"

@@ -15,7 +15,8 @@
         "livewire/livewire": "^3.0",
         "spatie/laravel-medialibrary": "^11.10",
         "spatie/laravel-permission": "^6.9",
-        "spatie/laravel-tags": "^4.6"
+        "spatie/laravel-tags": "^4.6",
+        "yoeunes/toastr": "^3.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
