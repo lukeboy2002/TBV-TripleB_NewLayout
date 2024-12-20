@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
 
         $posts = Post::factory(200)
             ->has(Comment::factory(15)->recycle($users))
-            ->recycle([$users, $categories])
+            ->recycle([$members, $categories])
             ->create();
         foreach ($posts as $post) {
             $random_tag = rand(0, 3);
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $events = Event::factory(20)
-            ->recycle([$users])
+            ->recycle([$members])
             ->create();
         foreach ($events as $event) {
             $random_tag = rand(0, 3);
@@ -74,6 +74,8 @@ class DatabaseSeeder extends Seeder
         }
 
         Contact::factory(20)->create();
-        Album::factory(10)->create();
+        Album::factory(10)
+            ->recycle([$members])
+            ->create();
     }
 }

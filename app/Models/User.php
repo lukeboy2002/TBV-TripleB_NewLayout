@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
@@ -22,7 +21,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasProfilePhoto;
     use HasRoles;
     use Notifiable;
-    use SoftDeletes;
     use TwoFactorAuthenticatable;
 
     /**
@@ -35,6 +33,8 @@ class User extends Authenticatable implements MustVerifyEmail
             'username',
             'email',
             'password',
+            'email_verified_at',
+            'invited_by',
         ];
 
     /**
@@ -96,6 +96,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function scopeSearch($query, $value)
+    {
+        $query->where('username', 'like', "%{$value}%")
+            ->orWhere('email', 'like', "%{$value}%");
     }
 
     protected function defaultProfilePhotoUrl()

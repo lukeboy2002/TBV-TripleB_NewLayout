@@ -35,7 +35,7 @@
                             <nav class="-mx-3 flex flex-1 justify-end">
                                 @auth
                                     <!-- Settings Dropdown -->
-                                    <div class="relative ms-3">
+                                    <div class="relative ms-3 mr-3">
                                         <x-dropdown align="right" width="48">
                                             <x-slot name="trigger">
                                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -78,12 +78,15 @@
                                                 <x-link.dropdown wire:navigate href="{{ route('profile.show') }}">
                                                     {{ __("Profile") }}
                                                 </x-link.dropdown>
-                                                <div class="border-t border-primary/30"></div>
-                                                <x-link.dropdown wire:navigate href="{{ route('invitation.create') }}">
-                                                    {{ __("Invite user") }}
-                                                </x-link.dropdown>
-                                                <div class="border-t border-primary/30"></div>
-                                                @if(auth()->user()->can('create:game'))
+                                                @if(auth()->user()->hasAnyRole('admin|member'))
+                                                    <div class="border-t border-primary/30"></div>
+                                                    <x-link.dropdown wire:navigate
+                                                                     href="{{ route('invitation.create') }}">
+                                                        {{ __("Invite user") }}
+                                                    </x-link.dropdown>
+                                                    <x-link.dropdown wire:navigate href="{{ route('users.index') }}">
+                                                        {{ __("Users") }}
+                                                    </x-link.dropdown>
                                                     <x-link.dropdown wire:navigate href="{{ route('games.create') }}">
                                                         {{ __("Create game") }}
                                                     </x-link.dropdown>
@@ -106,7 +109,7 @@
                                         </x-dropdown>
                                     </div>
                                 @else
-                                    <div class="ml-2 space-x-2">
+                                    <div class="mx-2 space-x-2">
                                         <x-link.nav href="{{ route('login') }}" class="text-sm">
                                             Login
                                         </x-link.nav>
@@ -200,6 +203,9 @@
                             </x-link.nav-responsive>
                             <x-link.nav-responsive wire:navigate href="{{ route('invitation.create') }}">
                                 {{ __("Invite user") }}
+                            </x-link.nav-responsive>
+                            <x-link.nav-responsive wire:navigate href="{{ route('users.index') }}">
+                                {{ __("Users") }}
                             </x-link.nav-responsive>
                             <!-- Authentication -->
                             <form method="POST"

@@ -4,9 +4,9 @@
             <x-search-box/>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-dark bg-light dark:bg-dark dark:text-light">
-                <tr>
+            <table class="w-full text-left rtl:text-right text-gray-500">
+                <thead class="text-dark dark:text-light uppercase text-xs">
+                <tr class="border-b border-dark dark:border-light">
                     @include('livewire.sortable-th',[
                          'name' => 'email',
                           'displayName' => 'Email'
@@ -26,12 +26,13 @@
                 </thead>
                 <tbody>
                 @foreach($invitees as $invitee)
-                    <tr wire:key="{{$invitee->id}}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <tr wire:key="{{$invitee->id}}"
+                        class="border-b border-dark dark:border-light text-xs text-dark dark:text-light">
                         <td class="px-6 py-4">
                             {{ $invitee->email }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $invitee->invited_by }}
+                            {{ ucfirst($invitee->invited_by) }}
                         </td>
                         <td class="px-6 py-4">
                             @if($invitee->invited_date)
@@ -66,4 +67,28 @@
             <p class="text-xl font-bold tracking-tight text-dark dark:text-light">No records found</p>
         </div>
     @endif
+
+
+    <!-- Delete User Confirmation Modal -->
+    <x-modal.dialog wire:model.live="confirmingDeletion">
+        <x-slot name="title">
+            Delete Account
+        </x-slot>
+
+        <x-slot name="content">
+            Are you sure you want to delete this Invitee?
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-button.secondary class="px-3 py-2 text-xs font-medium" wire:click="$set('confirmingDeletion', false)"
+                                wire:loading.attr="disabled">
+                Cancel
+            </x-button.secondary>
+
+            <x-button.danger class="px-3 py-2 text-xs font-medium"
+                             wire:click="deleteInvitee( {{ $confirmingDeletion }} )" wire:loading.attr="disabled">
+                Delete Account
+            </x-button.danger>
+        </x-slot>
+    </x-modal.dialog>
 </div>

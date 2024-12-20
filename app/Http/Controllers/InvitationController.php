@@ -59,6 +59,10 @@ class InvitationController extends Controller
      */
     public function create()
     {
-        return view('invitations.create');
+        if (auth()->user()->hasPermissionTo('create:invitee')) {
+            return view('invitations.create');
+        } else {
+            abort(403);
+        }
     }
 }

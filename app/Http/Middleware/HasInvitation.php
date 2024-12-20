@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Invitation;
 use Closure;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

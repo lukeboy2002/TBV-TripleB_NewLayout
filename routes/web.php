@@ -10,6 +10,7 @@ use App\Http\Controllers\InvitationAcceptController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
@@ -21,19 +22,18 @@ Route::get('/contact/create', [ContactController::class, 'create'])->name('conta
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
 Route::get('/albums/{album:slug}', [AlbumController::class, 'show'])->name('albums.show');
-
 Route::get('/accept-invitation/create', [InvitationAcceptController::class, 'create'])->name('accept-invitation.create')->middleware('has_invitation');
 Route::post('/accept-invitation', [InvitationAcceptController::class, 'store'])->name('accept-invitation.store');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    //    Route::get('/dashboard', function () {
-    //        return view('dashboard');
-    //    })->name('dashboard');
+    Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
+    Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
+});
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'role:admin|member'])->group(function () {
     Route::resource('games', GameController::class)->except(['destroy']);
 
     Route::get('/invitation/create', [InvitationController::class, 'create'])->name('invitation.create');
     Route::post('/invitation', [InvitationController::class, 'store'])->name('invitation.store');
-
-    Route::post('filepondupload', [FilepondController::class, 'upload'])->name('filepond.upload');
-    Route::delete('filepondrevert', [FilepondController::class, 'revert'])->name('filepond.revert');
+    Route::resource('/users', UserController::class);
 });

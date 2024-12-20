@@ -37,11 +37,32 @@ class RolesAndPermissionsSeeder extends Seeder
         $permission3 = Permission::create(['name' => 'update:permission']);
         $permission4 = Permission::create(['name' => 'delete:permission']);
 
-        // ADMINS
-        $adminPermission1 = Permission::create(['name' => 'create:admin']);
-        $adminPermission2 = Permission::create(['name' => 'show:admin']);
-        $adminPermission3 = Permission::create(['name' => 'update:admin']);
-        $adminPermission4 = Permission::create(['name' => 'delete:admin']);
+        // GAME
+        $gamePermission1 = Permission::create(['name' => 'create:game']);
+        $gamePermission2 = Permission::create(['name' => 'show:game']);
+        $gamePermission3 = Permission::create(['name' => 'update:game']);
+        $gamePermission4 = Permission::create(['name' => 'delete:game']);
+
+        // POST
+        $postPermission1 = Permission::create(['name' => 'create:post']);
+        $postPermission2 = Permission::create(['name' => 'show:post']);
+        $postPermission3 = Permission::create(['name' => 'update:post']);
+        $postPermission4 = Permission::create(['name' => 'delete:post']);
+
+        // EVENT
+        $eventPermission1 = Permission::create(['name' => 'create:event']);
+        $eventPermission2 = Permission::create(['name' => 'show:event']);
+        $eventPermission3 = Permission::create(['name' => 'update:event']);
+        $eventPermission4 = Permission::create(['name' => 'delete:event']);
+
+        // ALBUM
+        $albumPermission1 = Permission::create(['name' => 'create:album']);
+        $albumPermission2 = Permission::create(['name' => 'show:album']);
+        $albumPermission3 = Permission::create(['name' => 'update:album']);
+        $albumPermission4 = Permission::create(['name' => 'delete:album']);
+
+        // INVITATION
+        $invitePermission1 = Permission::create(['name' => 'create:invitee']);
 
         // CREATE ROLES
         $userRole = Role::create(['name' => 'user'])->syncPermissions([
@@ -61,17 +82,37 @@ class RolesAndPermissionsSeeder extends Seeder
             $permission2,
             $permission3,
             $permission4,
-            $adminPermission1,
-            $adminPermission2,
-            $adminPermission3,
-            $adminPermission4,
+            $gamePermission1,
+            $gamePermission2,
+            $gamePermission3,
+            $gamePermission4,
+            $postPermission1,
+            $postPermission2,
+            $postPermission3,
+            $postPermission4,
+            $eventPermission1,
+            $eventPermission2,
+            $eventPermission3,
+            $eventPermission4,
+            $albumPermission1,
+            $albumPermission2,
+            $albumPermission3,
+            $albumPermission4,
+            $invitePermission1,
+
         ]);
         $memberRole = Role::create(['name' => 'member'])->syncPermissions([
             $userPermission1,
-            $userPermission2,
             $userPermission3,
-            $userPermission4,
-            $adminPermission1,
+            $gamePermission1,
+            $gamePermission3,
+            $postPermission1,
+            $postPermission3,
+            $eventPermission1,
+            $eventPermission3,
+            $albumPermission1,
+            $albumPermission3,
+            $invitePermission1,
         ]);
     }
 }

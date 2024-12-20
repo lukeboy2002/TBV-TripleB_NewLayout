@@ -4,7 +4,7 @@
         <form action="{{ route('invitation.store') }}" method="POST" class="space-y-6 p-6">
             @csrf
             <div>
-                <x-form.label for="email" value="{{ __('Email') }}"/>
+                <x-form.label for="email" class="pb-2" value="{{ __('Email') }}"/>
                 <x-form.input type="email" id="email" name="email" :value="old('email')" required autofocus/>
                 <x-form.input-error for="email"/>
             </div>
